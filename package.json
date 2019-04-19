@@ -1,0 +1,27 @@
+{
+  "name": "testcafe-testing-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "kcd-scripts build",
+    "test:unit": "kcd-scripts test --no-watch",
+    "test:testcafe:serve": "serve --listen 13370 ./test-app",
+    "test:testcafe:run": "testcafe",
+    "test:testcafe": "npm-run-all --silent --parallel --race test:testcafe:serve test:testcafe:run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.4.3",
+    "dom-testing-library": "^3.17.1",
+    "testcafe": "^1.1.2"
+  },
+  "devDependencies": {
+    "kcd-scripts": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "serve": "^10.1.2"
+  }
+}
