@@ -3,7 +3,7 @@
 
 ## The problem
 
-You want to use [`dom-testing-library`][dom-testing-library] methods in your [Testcafe][testcafe] tests.
+You want to use [https://github.com/kentcdodds/dom-testing-library][dom-testing-library] methods in your [Testcafe][https://devexpress.github.io/testcafe/] tests.
 
 ## This solution
 
