@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "kcd-scripts build",
-    "test:unit": "kcd-scripts test --no-watch",
+    "test:unit": "kcd-scripts test --no-watch --config=jest.config.js",
     "test:testcafe:serve": "serve --listen 13370 ./test-app",
     "test:testcafe:run": "testcafe",
     "test:testcafe": "npm-run-all --silent --parallel --race test:testcafe:serve test:testcafe:run",

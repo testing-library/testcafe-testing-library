@@ -1,4 +1,4 @@
-import selectors from "../";
+import selectors from "../../src";
 import { Selector } from "testcafe";
 
 test("exports expected selectors", () => {
