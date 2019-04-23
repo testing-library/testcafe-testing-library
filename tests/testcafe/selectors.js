@@ -5,7 +5,15 @@ const rtl = require("dom-testing-library");
 fixture`selectors`.page`http://localhost:13370`;
 
 test("getByText", async t => {
-  const { getByText } = queries;
-  debugger;
-  await t.expect(getByText("getByText").exists).ok();
+  const getTheText = ClientFunction(
+    () => {
+      return rtl.getByText(document.body, "getByText");
+    },
+    {
+      dependencies: { rtl }
+    }
+  );
+
+  const text = await getTheText();
+  await t.expect(text).eql("getByText");
 });
