@@ -9,14 +9,14 @@
     "test:testcafe:serve": "serve --listen 13370 ./test-app",
     "test:testcafe:run": "testcafe",
     "test:testcafe": "npm-run-all --silent --parallel --race test:testcafe:serve test:testcafe:run",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm-run-all test:unit test:testcafe"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.4.3",
-    "dom-testing-library": "^3.17.1",
+    "dom-testing-library": "^3.19.4",
     "testcafe": "^1.1.2"
   },
   "devDependencies": {
