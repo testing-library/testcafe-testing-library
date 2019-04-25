@@ -1,10 +1,12 @@
-import { Selector } from 'testcafe';
-import * as selectors from '../../src';
+import * as selectors from '../../src'
+
+/* eslint-enable impoort/namespace */
 
 test('exports expected selectors', () => {
-  expect(selectors).toMatchObject(expect.any(Object));
-  expect(Object.keys(selectors)).toMatchSnapshot();
+  expect(selectors).toMatchObject(expect.any(Object))
+  expect(Object.keys(selectors)).toMatchSnapshot()
   Object.keys(selectors).forEach(selector => {
-    expect(selectors[selector]).toBeInstanceOf(Function);
-  });
-});
+    // eslint-disable-next-line import/namespace
+    expect(selectors[selector]).toBeInstanceOf(Function)
+  })
+})
