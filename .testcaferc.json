@@ -1,4 +1,6 @@
 {
   "src": "tests/testcafe/**/*.js",
-  "browsers": ["chromium"]
+  "browsers": ["chromium"],
+
+  "concurrency": 1
 }
