@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.4.3",
-    "dom-testing-library": "^3.19.4",
+    "dom-testing-library": "^4.0.0",
     "testcafe": "^1.1.2"
   },
   "devDependencies": {
