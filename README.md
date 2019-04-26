@@ -5,7 +5,7 @@
 <img height="80" width="80" alt="goat" src="https://raw.githubusercontent.com/benmonro/testcafe-testing-library/master/other/goat.png" />
 </a>
 
-<p>Testcafe selectors and utilities that encourage good testing practices laid down by `dom-testing-library`.</p>
+<p>Testcafe selectors and utilities that encourage good testing practices laid down by dom-testing-library.</p>
 
 [**Read the docs**](https://testing-library.com/cypress) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
 
