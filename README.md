@@ -34,7 +34,7 @@
 
 ## The problem
 
-You want to use [dom-testing-library](https://github.com/kentcdodds/dom-testing-library) methods in your [Testcafe](Testcafe) tests.
+You want to use [dom-testing-library](https://github.com/kentcdodds/dom-testing-library) methods in your [Testcafe][testcafe] tests.
 
 ## This solution
 
@@ -65,7 +65,7 @@ npm install --save-dev testcafe-testing-library
 
 ### With typescript
 
-TODO: Add typescript support
+TODO: Add typescript support #10 PRs welcome!
 
 <!--
 Typings are defined under `cypress-testing-library/typings`, and should be added as follows in `tsconfig.json`:
