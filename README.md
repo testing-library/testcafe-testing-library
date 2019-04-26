@@ -1,6 +1,7 @@
 <div align="center">
 <h1>testcafe-testing-library</h1>
 
+
 <a href="https://www.emojione.com/emoji/1f405">
 <img height="80" width="80" alt="goat" src="https://raw.githubusercontent.com/benmonro/testcafe-testing-library/master/other/goat.png" />
 </a>
@@ -19,7 +20,7 @@
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 
@@ -130,6 +131,20 @@ test('getByLabelText', async t => {
 I'm not aware of any, if you are please [make a pull request][prs] and add it
 here!
 
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+
 ## LICENSE
 
 MIT
@@ -161,3 +176,4 @@ MIT
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [dom-testing-library]: https://github.com/kentcdodds/dom-testing-library
 [cypress]: https://www.cypress.io/
+
