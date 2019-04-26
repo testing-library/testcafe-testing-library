@@ -4,23 +4,23 @@ addons:
   firefox: latest
   apt:
     sources:
-    - google-chrome
+      - google-chrome
     packages:
-    - google-chrome-stable fluxbox
+      - google-chrome-stable fluxbox
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- sleep 3
-- fluxbox >/dev/null 2>&1 &
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+  - fluxbox >/dev/null 2>&1 &
 language: node_js
 cache:
   directories:
-  - "~/.npm"
+    - '~/.npm'
 notifications:
   email: false
 node_js: '8'
 before_install:
-- stty cols 80
+  - stty cols 80
 install: npm install
 script: npm run validate
 after_success: kcd-scripts travis-after-success
@@ -32,5 +32,5 @@ deploy:
   api_key:
     secure: qXZyfBh6XSzNt2cbVnPZQr713rKrAKJH+sXf+5a9h9j3pS/Aqn2QG6l/zXepGhQbBLl5NqHGewu/mX+kxvn8ub2iwMh/ox0UNeSmCnrJjFqVmH9vXemcQWKqwI7zLaNRArmAFAXKSi6ud3vk2UZuZENSGh1qUVOrG+Tb/wxWzUW8a7+RYzEWGfmc3VWj925domwMp9nDiAhLkQ5VDhrun8fKppppk9mAMy+pHsRAZLRr7XAtfo63MstATdRUJS1ALz9wOI8YCpq5v3dVVfckl5NnZgA5jVezIgLz/Iz750133q++gHpxHAxw2nlW0bcXKfKDRcP7kzQvxhyJMkIV4WkHkriTN7aSp7Zexxu5bfIl/uVUF6IM+oUJQkxpFhLsq6kY91vUT7L2jX+WIRlecX4E0JuxwD9uORle0kOvIcDrKaRmWfh+j/PMJF9+VAdPB9fKtSR0c+5DsxHiaghCEGDBOpzxed6aZUzfHnY+DxgVKRswVvJGssk2xG1+JjiSSSMqN+jvJqBhyL8Zt35r0FCTZczFyQ6qY4nkLCqHHbwZg0cMP7nbk9UWRMaufEqJdo6js/Ng1/tNpaerRSaxBe3JBNlDeYQoWEYkMgB4wgVW1+Xw7iAdtCAZYJ7u90aeSVCjJrtwpIH277ou7im08pfnPQvmS+h95PPY/NYIM+I=
   on:
-    tags: true
+    branch: master
     repo: benmonro/testcafe-testing-library
