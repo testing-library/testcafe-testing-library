@@ -5,6 +5,20 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
+
+    {
+      "login": "benmonro",
+      "name": "Ben Monro",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/399236?v=4",
+      "profile": "https://github.com/benmonro",
+      "contributions": [
+        "doc",
+        "code",
+        "test",
+        "infra",
+        "ideas"
+      ]
+    },
     {
       "login": "kentcdodds",
       "name": "Kent C. Dodds",
@@ -17,16 +31,13 @@
       ]
     },
     {
-      "login": "benmonro",
-      "name": "Ben Monro",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/399236?v=4",
-      "profile": "https://github.com/benmonro",
+      "login": "miherlosev",
+      "name": "Mikhail Losev",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4133518?v=4",
+      "profile": "https://twitter.com/miherlosev",
       "contributions": [
-        "doc",
         "code",
-        "test",
-        "infra",
-        "ideas"
+        "question"
       ]
     }
   ],
