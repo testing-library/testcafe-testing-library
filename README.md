@@ -14,7 +14,6 @@
 <hr />
 
 [![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
@@ -136,7 +135,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td><td align="center"><a href="https://github.com/benmonro"><img src="https://avatars3.githubusercontent.com/u/399236?v=4" width="100px;" alt="Ben Monro"/><br /><sub><b>Ben Monro</b></sub></a><br /><a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Documentation">📖</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Code">💻</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Tests">⚠️</a> <a href="#infra-benmonro" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-benmonro" title="Ideas, Planning, & Feedback">🤔</a></td></tr></table>
+<table><tr><td align="center"><a href="https://github.com/benmonro"><img src="https://avatars3.githubusercontent.com/u/399236?v=4" width="100px;" alt="Ben Monro"/><br /><sub><b>Ben Monro</b></sub></a><br /><a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Documentation">📖</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Code">💻</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Tests">⚠️</a> <a href="#infra-benmonro" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-benmonro" title="Ideas, Planning, & Feedback">🤔</a></td><td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
@@ -150,7 +149,6 @@ MIT
 [node]: https://nodejs.org
 [build-badge]: https://img.shields.io/travis/benmonro/testcafe-testing-library.svg?style=flat-square
 [build]: https://travis-ci.org/benmonro/testcafe-testing-library
-[coverage-badge]: https://img.shields.io/codecov/c/github/benmonro/testcafe-testing-library.svg?style=flat-square
 [coverage]: https://codecov.io/github/benmonro/testcafe-testing-library
 [version-badge]: https://img.shields.io/npm/v/testcafe-testing-library.svg?style=flat-square
 [package]: https://www.npmjs.com/package/testcafe-testing-library
