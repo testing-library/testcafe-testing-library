@@ -1,7 +1,6 @@
 <div align="center">
 <h1>testcafe-testing-library</h1>
 
-
 <a href="https://www.emojione.com/emoji/1f405">
 <img height="80" width="80" alt="goat" src="https://raw.githubusercontent.com/benmonro/testcafe-testing-library/master/other/goat.png" />
 </a>
@@ -15,7 +14,6 @@
 <hr />
 
 [![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
@@ -36,7 +34,7 @@
 
 ## The problem
 
-You want to use [dom-testing-library](https://github.com/kentcdodds/dom-testing-library) methods in your [Testcafe](https://devexpress.github.io/testcafe/) tests.
+You want to use [dom-testing-library](https://github.com/kentcdodds/dom-testing-library) methods in your [Testcafe](Testcafe) tests.
 
 ## This solution
 
@@ -131,19 +129,17 @@ test('getByLabelText', async t => {
 I'm not aware of any, if you are please [make a pull request][prs] and add it
 here!
 
-
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td><td align="center"><a href="https://github.com/benmonro"><img src="https://avatars3.githubusercontent.com/u/399236?v=4" width="100px;" alt="Ben Monro"/><br /><sub><b>Ben Monro</b></sub></a><br /><a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Documentation">📖</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Code">💻</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Tests">⚠️</a> <a href="#infra-benmonro" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-benmonro" title="Ideas, Planning, & Feedback">🤔</a></td></tr></table>
+<table><tr><td align="center"><a href="https://github.com/benmonro"><img src="https://avatars3.githubusercontent.com/u/399236?v=4" width="100px;" alt="Ben Monro"/><br /><sub><b>Ben Monro</b></sub></a><br /><a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Documentation">📖</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Code">💻</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=benmonro" title="Tests">⚠️</a> <a href="#infra-benmonro" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-benmonro" title="Ideas, Planning, & Feedback">🤔</a></td><td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/benmonro/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
 
 ## LICENSE
 
@@ -151,29 +147,27 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/kentcdodds/cypress-testing-library.svg?style=flat-square
-[build]: https://travis-ci.org/kentcdodds/cypress-testing-library
-[coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/cypress-testing-library.svg?style=flat-square
-[coverage]: https://codecov.io/github/kentcdodds/cypress-testing-library
-[version-badge]: https://img.shields.io/npm/v/cypress-testing-library.svg?style=flat-square
-[package]: https://www.npmjs.com/package/cypress-testing-library
-[downloads-badge]: https://img.shields.io/npm/dm/cypress-testing-library.svg?style=flat-square
-[npmtrends]: http://www.npmtrends.com/cypress-testing-library
-[license-badge]: https://img.shields.io/npm/l/cypress-testing-library.svg?style=flat-square
-[license]: https://github.com/kentcdodds/cypress-testing-library/blob/master/LICENSE
+[build-badge]: https://img.shields.io/travis/benmonro/testcafe-testing-library.svg?style=flat-square
+[build]: https://travis-ci.org/benmonro/testcafe-testing-library
+[coverage]: https://codecov.io/github/benmonro/testcafe-testing-library
+[version-badge]: https://img.shields.io/npm/v/testcafe-testing-library.svg?style=flat-square
+[package]: https://www.npmjs.com/package/testcafe-testing-library
+[downloads-badge]: https://img.shields.io/npm/dm/testcafe-testing-library.svg?style=flat-square
+[npmtrends]: http://www.npmtrends.com/testcafe-testing-library
+[license-badge]: https://img.shields.io/npm/l/testcafe-testing-library.svg?style=flat-square
+[license]: https://github.com/benmonro/testcafe-testing-library/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/kentcdodds/cypress-testing-library/blob/master/other/CODE_OF_CONDUCT.md
-[github-watch-badge]: https://img.shields.io/github/watchers/kentcdodds/cypress-testing-library.svg?style=social
-[github-watch]: https://github.com/kentcdodds/cypress-testing-library/watchers
-[github-star-badge]: https://img.shields.io/github/stars/kentcdodds/cypress-testing-library.svg?style=social
-[github-star]: https://github.com/kentcdodds/cypress-testing-library/stargazers
-[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20cypress-testing-library%20by%20%40kentcdodds%20https%3A%2F%2Fgithub.com%2Fkentcdodds%2Fcypress-testing-library%20%F0%9F%91%8D
-[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/kentcdodds/cypress-testing-library.svg?style=social
-[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
-[all-contributors]: https://github.com/kentcdodds/all-contributors
-[dom-testing-library]: https://github.com/kentcdodds/dom-testing-library
-[cypress]: https://www.cypress.io/
-
+[coc]: https://github.com/benmonro/testcafe-testing-library/blob/master/other/CODE_OF_CONDUCT.md
+[github-watch-badge]: https://img.shields.io/github/watchers/benmonro/testcafe-testing-library.svg?style=social
+[github-watch]: https://github.com/benmonro/testcafe-testing-library/watchers
+[github-star-badge]: https://img.shields.io/github/stars/benmonro/testcafe-testing-library.svg?style=social
+[github-star]: https://github.com/benmonro/testcafe-testing-library/stargazers
+[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20testcafe-testing-library%20by%20%40benmonro%20https%3A%2F%2Fgithub.com%2Fbenmonro%2Ftestcafe-testing-library%20%F0%9F%91%8D
+[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/benmonro/testcafe-testing-library.svg?style=social
+[emojis]: https://github.com/benmonro/all-contributors#emoji-key
+[all-contributors]: https://github.com/all-contributors/all-contributors
+[dom-testing-library]: https://github.com/testing-library/dom-testing-library
+[testcafe]: https://devexpress.github.io/testcafe/
