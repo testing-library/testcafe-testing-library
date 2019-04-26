@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-disabled-tests */
 /* eslint-disable import/named */
 import {Selector} from 'testcafe'
 import {
@@ -11,13 +12,15 @@ import {
   addTestcafeTestingLibrary,
 } from '../../src/'
 
+// eslint-disable-next-line babel/no-unused-expressions
 fixture`selectors`.beforeEach(addTestcafeTestingLibrary)
   .page`http://localhost:13370`
 
 test('getByPlaceHolderText', async t => {
-  await t
-    // .wait(500000)
-    .typeText(getByPlaceholderText('Placeholder Text'), 'Hello Placeholder')
+  await t.typeText(
+    getByPlaceholderText('Placeholder Text'),
+    'Hello Placeholder',
+  )
 })
 test('getByText', async t => {
   await t.click(getByText('getByText'))
@@ -40,11 +43,12 @@ test('getByTestId', async t => {
 
 test('getAllByText', async t => {
   const chans = getAllByText(/^Jackie Chan/)
-  const {count} = await chans
+  const count = await chans.count
 
-  for (let i = 0; i < count; i++) {
-    await t.click(chans.nth(i))
-  }
+  await t.expect(count).eql(2)
+
+  await t.click(chans.nth(1))
+  await t.click(chans.nth(0))
 })
 
 test('queryByText', async t => {
