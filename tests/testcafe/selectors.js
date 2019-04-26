@@ -8,7 +8,7 @@ import {
   getByAltText,
   getByTestId,
   getAllByText,
-  queryByText,
+  queryAllByText,
   addTestcafeTestingLibrary,
 } from '../../src/'
 
@@ -51,9 +51,9 @@ test('getAllByText', async t => {
   await t.click(chans.nth(0))
 })
 
-test('queryByText', async t => {
-  await t.expect(queryByText('Button Text').exists).ok()
-  await t.expect(queryByText('Non-existing Button Text').exists).notOk()
+test('queryAllByText', async t => {
+  await t.expect(queryAllByText('Button Text').exists).ok()
+  await t.expect(queryAllByText('Non-existing Button Text').exists).notOk()
 })
 
 test.skip('getByText in container', async t => {
