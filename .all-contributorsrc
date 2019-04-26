@@ -28,6 +28,16 @@
         "infra",
         "ideas"
       ]
+    },
+    {
+      "login": "miherlosev",
+      "name": "Mikhail Losev",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4133518?v=4",
+      "profile": "https://twitter.com/miherlosev",
+      "contributions": [
+        "code",
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7,
