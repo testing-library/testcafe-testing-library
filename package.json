@@ -1,8 +1,8 @@
 {
   "name": "testcafe-testing-library",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.1-semantically-released",
   "description": "",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build",
@@ -15,6 +15,7 @@
     "test": "npm-run-all --parallel test:unit test:testcafe",
     "semantic-release": "semantic-release"
   },
+  "files": [ "dist" ],
   "keywords": [],
   "author": "",
   "license": "ISC",
