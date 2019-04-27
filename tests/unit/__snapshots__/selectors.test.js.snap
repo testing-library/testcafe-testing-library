@@ -3,6 +3,7 @@
 exports[`exports expected selectors 1`] = `
 Array [
   "addTestcafeTestingLibrary",
+  "within",
   "queryAllByLabelText",
   "getAllByLabelText",
   "queryByLabelText",

@@ -1,3 +1,4 @@
+/* eslint-disable no-new-func */
 import fs from 'fs'
 import path from 'path'
 import {ClientFunction, Selector} from 'testcafe'
@@ -20,7 +21,6 @@ export const addTestcafeTestingLibrary = async t => {
 
 Object.keys(queries).forEach(queryName => {
   module.exports[queryName] = Selector(
-    // eslint-disable-next-line no-new-func
     new Function(
       `
       return DomTestingLibrary.${queryName}(document.body, ...arguments);
@@ -28,3 +28,17 @@ Object.keys(queries).forEach(queryName => {
     ),
   )
 })
+
+export const within = sel => {
+  const s = {}
+
+  Object.keys(queries).forEach(queryName => {
+    s[queryName] = Selector(
+      new Function(
+        `return DomTestingLibrary.within(document.querySelector("${sel}")).${queryName}(...arguments)`,
+      ),
+    )
+  })
+
+  return s
+}
