@@ -21,7 +21,7 @@ notifications:
 node_js: '8'
 before_install:
   - stty cols 80
-install: npm install
+install: npm ci
 script: npm run validate
 after_success: kcd-scripts travis-after-success
 branches:
