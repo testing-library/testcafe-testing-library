@@ -7,7 +7,7 @@
 
 <p>Testcafe selectors and utilities that encourage good testing practices laid down by dom-testing-library.</p>
 
-[**Read the docs**](https://testing-library.com/cypress) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
+[**Read the docs**](https://testing-library.com/docs/testcafe-testing-library/intro) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
 
 </div>
 
