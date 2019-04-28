@@ -63,66 +63,9 @@ should be installed as one of your project's `devDependencies`:
 npm install --save-dev testcafe-testing-library
 ```
 
-### With typescript
-
-TODO: Add typescript support #10 PRs welcome!
-
-<!--
-Typings are defined under `cypress-testing-library/typings`, and should be added as follows in `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "types": ["cypress", "../cypress-testing-library/typings"]
-  }
-}
-```
--->
-
 ## Usage
 
-`testcafe-testing-library` provides custom Selectors allowing you to query the
-dom.
-
-Add `testcafe-testing-library` to your test fixture's `beforeEach` hook:
-
-```javascript
-import {
-  getByText, //or any other queries you want
-  addTestcafeTestingLibrary,
-} from 'testcafe-testing-library'
-
-fixture`selectors`.beforeEach(addTestcafeTestingLibrary)
-  .page`http://localhost:13370`
-```
-
-You can now import & use `getBy`, `getAllBy`, `queryBy` and `queryAllBy`
-selectors in your tests.
-[See `dom-testing-library` API for reference](dom-testing-library/api-queries.md)
-
-## Examples
-
-To show some simple examples (from
-[https://github.com/benmonro/testcafe-testing-library/blob/master/tests/testcafe/selectors.js](https://github.com/benmonro/testcafe-testing-library/blob/master/tests/testcafe/selectors.js)):
-
-```javascript
-test('getByPlaceHolderText', async t => {
-  await t.typeText(
-    getByPlaceholderText('Placeholder Text'),
-    'Hello Placeholder',
-  )
-})
-test('getByText', async t => {
-  await t.click(getByText('getByText'))
-})
-
-test('getByLabelText', async t => {
-  await t.typeText(
-    getByLabelText('Label For Input Labelled By Id'),
-    'Hello Input Labelled By Id',
-  )
-})
-```
+[Usage Docs](https://testing-library.com/docs/testcafe-testing-library/intro#usage)
 
 ## Other Solutions
 
