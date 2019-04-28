@@ -1,6 +1,5 @@
 /* eslint-disable jest/no-disabled-tests */
 /* eslint-disable import/named */
-import {Selector} from 'testcafe'
 import {
   getByText,
   getByPlaceholderText,
@@ -54,11 +53,6 @@ test('getAllByText', async t => {
 test('queryAllByText', async t => {
   await t.expect(queryAllByText('Button Text').exists).ok()
   await t.expect(queryAllByText('Non-existing Button Text').exists).notOk()
-})
-
-test.skip('getByText in container', async t => {
-  const nested = await Selector('#nested')
-  await t.click(getByText('Button Text', {container: nested}))
 })
 
 test.skip('getByTestId only throws the error message', async t => {
