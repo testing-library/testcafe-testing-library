@@ -9,7 +9,6 @@ import {
   getAllByText,
   queryAllByText,
   addTestcafeTestingLibrary,
-  within,
 } from '../../src/'
 
 // eslint-disable-next-line babel/no-unused-expressions
@@ -54,10 +53,6 @@ test('getAllByText', async t => {
 test('queryAllByText', async t => {
   await t.expect(queryAllByText('Button Text').exists).ok()
   await t.expect(queryAllByText('Non-existing Button Text').exists).notOk()
-})
-
-test('getByText within container', async t => {
-  await t.click(within('#nested').getByText('Button Text'))
 })
 
 test.skip('getByTestId only throws the error message', async t => {
