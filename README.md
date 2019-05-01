@@ -7,6 +7,8 @@
 
 <p>Testcafe selectors and utilities that encourage good testing practices laid down by dom-testing-library.</p>
 
+***Please go upvote this issue in testcafe to help make this library better*** https://github.com/DevExpress/testcafe/issues/3758
+
 [**Read the docs**](https://testing-library.com/docs/testcafe-testing-library/intro) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
 
 </div>
@@ -17,6 +19,8 @@
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
