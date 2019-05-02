@@ -1,8 +1,9 @@
 <div align="center">
 <h1>testcafe-testing-library</h1>
 
-<a href="https://www.emojione.com/emoji/1f405">
-<img height="80" width="80" alt="goat" src="https://raw.githubusercontent.com/testing-library/testcafe-testing-library/master/other/goat.png" />
+<a href="https://www.emojione.com/emoji/1f402">
+<img height="80" width="80" alt="ox" src="https://raw.githubusercontent.com/testing-library/testcafe-testing-library/master/other/ox.png" />
+
 </a>
 
 <p>Testcafe selectors and utilities that encourage good testing practices laid down by dom-testing-library.</p>
