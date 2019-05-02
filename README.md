@@ -1,13 +1,13 @@
 <div align="center">
 <h1>testcafe-testing-library</h1>
 
-<a href="https://www.emojione.com/emoji/1f405">
-<img height="80" width="80" alt="goat" src="https://raw.githubusercontent.com/benmonro/testcafe-testing-library/master/other/goat.png" />
+<a href="https://www.emojione.com/emoji/1f402">
+<img height="80" width="80" alt="ox" src="https://raw.githubusercontent.com/testing-library/testcafe-testing-library/master/other/ox.png" />
 </a>
 
 <p>Testcafe selectors and utilities that encourage good testing practices laid down by dom-testing-library.</p>
 
-***Please go upvote this issue in testcafe to help make this library better*** https://github.com/DevExpress/testcafe/issues/3758
+**_Please go upvote this issue in testcafe to help make this library better_** https://github.com/DevExpress/testcafe/issues/3758
 
 [**Read the docs**](https://testing-library.com/docs/testcafe-testing-library/intro) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
 
@@ -20,7 +20,6 @@
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
