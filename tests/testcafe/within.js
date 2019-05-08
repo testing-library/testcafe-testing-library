@@ -18,3 +18,12 @@ test("queryByPlaceholder doesn't find anything", async t => {
 
   await t.expect(queryByPlaceholderText('Placeholder Text').exists).notOk()
 })
+
+test('quotes in selector', async t => {
+  const {getByText} = await within('div[id="nested"]')
+
+  await t
+    .click(getByText('Button Text'))
+    .expect(Selector('button').withExactText('Button Clicked').exists)
+    .ok()
+})
