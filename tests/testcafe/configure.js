@@ -1,4 +1,4 @@
-
+/* eslint-disable import/named */
 import { configure, getByTestId, addTestcafeTestingLibrary } from '../../src'
 
 
@@ -12,5 +12,5 @@ test('configure', async t => {
     await configure({ testIdAttribute: 'data-automation-id' });
 
     await t
-        .click(getByTestId("image-with-random-alt-tag"))
+        .click(getByTestId('image-with-random-alt-tag'))
 })
