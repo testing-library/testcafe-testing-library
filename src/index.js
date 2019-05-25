@@ -2,8 +2,8 @@
 /* eslint-disable no-new-func */
 import fs from 'fs'
 import path from 'path'
-import {ClientFunction, Selector} from 'testcafe'
-import {queries} from 'dom-testing-library'
+import { ClientFunction, Selector } from 'testcafe'
+import { queries } from 'dom-testing-library'
 
 const LIBRARY_UMD_PATH = path.join(
   './node_modules',
@@ -20,11 +20,11 @@ export const addTestcafeTestingLibrary = async t => {
       window.TestCafeTestingLibrary = {}
     },
     {
-      dependencies: {script: LIBRARY_UMD_CONTENT},
+      dependencies: { script: LIBRARY_UMD_CONTENT },
     },
   )
 
-  await inject.with({boundTestRun: t})()
+  await inject.with({ boundTestRun: t })()
 }
 
 Object.keys(queries).forEach(queryName => {
@@ -59,4 +59,13 @@ export const within = async sel => {
   })
 
   return container
+}
+
+
+export const configure = async options => {
+  await ClientFunction(new Function(
+    `
+      window.DomTestingLibrary.configure(${JSON.stringify(options)});
+    `
+  ))
 }
