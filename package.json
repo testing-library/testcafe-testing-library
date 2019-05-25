@@ -15,7 +15,9 @@
     "test": "npm-run-all --parallel test:unit test:testcafe",
     "semantic-release": "semantic-release"
   },
-  "files": [ "dist" ],
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
