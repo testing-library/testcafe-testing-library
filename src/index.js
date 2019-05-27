@@ -19,7 +19,7 @@ export async function configure(options, t) {
     `
   window.DomTestingLibrary.configure(${JSON.stringify(options)});
 `;
-  await ClientFunction(new Function(configFunction))();
+  await new ClientFunction(new Function(configFunction))();
 
   if (t) {
     t.testRun.injectable.scripts.push('/testcafe-testing-library-config.js');
