@@ -1,6 +1,8 @@
 {
   "src": "tests/testcafe/**/*.js",
-  "browsers": ["chromium"],
-
+  "browsers": [
+    "chrome:headless",
+    "firefox:headless"
+  ],
   "concurrency": 1
 }
