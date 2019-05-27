@@ -11,7 +11,24 @@ const DOM_TESTING_LIBRARY_UMD_PATH = path.join(
 )
 const DOM_TESTING_LIBRARY_UMD = fs.readFileSync(DOM_TESTING_LIBRARY_UMD_PATH).toString()
 
-export const addTestcafeTestingLibrary = async t => {
+
+
+
+export async function configure(options, t) {
+  const configFunction =
+    `
+  window.DomTestingLibrary.configure(${JSON.stringify(options)});
+`;
+  await ClientFunction(new Function(configFunction))();
+
+  if (t) {
+    t.testRun.injectable.scripts.push('/testcafe-testing-library-config.js');
+    t.testRun.session.proxy.GET('/testcafe-testing-library-config.js', { content: configFunction, contentType: 'application/x-javascript' })
+  }
+
+}
+
+export async function addTestcafeTestingLibrary(t) {
   // inject for 1st pageload.  Then just use injectables for subsequent page loads.
   // eslint-disable-next-line
   const inject = ClientFunction(
@@ -30,8 +47,16 @@ export const addTestcafeTestingLibrary = async t => {
   t.testRun.injectable.scripts.push('/dom-testing-library.js');
   t.testRun.session.proxy.GET('/dom-testing-library.js', { content: DOM_TESTING_LIBRARY_UMD, contentType: 'application/x-javascript' })
 
+  if (addTestcafeTestingLibrary.options) {
+    await configure(addTestcafeTestingLibrary.options, t);
+  }
 
+}
 
+// eslint-disable-next-line no-shadow
+addTestcafeTestingLibrary.configure = function configure(options) {
+  addTestcafeTestingLibrary.options = { ...options };
+  return addTestcafeTestingLibrary;
 }
 
 Object.keys(queries).forEach(queryName => {
@@ -70,11 +95,3 @@ export const within = async sel => {
   return container
 }
 
-
-export const configure = async options => {
-  await ClientFunction(new Function(
-    `
-      window.DomTestingLibrary.configure(${JSON.stringify(options)});
-    `
-  ))
-}
