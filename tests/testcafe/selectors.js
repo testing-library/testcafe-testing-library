@@ -55,6 +55,15 @@ test('queryAllByText', async t => {
   await t.expect(queryAllByText('Non-existing Button Text').exists).notOk()
 })
 
+
+
+
+test('still works after browser page load', async t => {
+  await t
+    .click(getByText('Go to Page 2'))
+    .expect(getByText('second page').exists).ok()
+})
+
 test.skip('getByTestId only throws the error message', async t => {
   const testId = 'Some random id'
   const errorMessage = `Unable to find an element by: [data-testid="${testId}"]`
