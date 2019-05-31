@@ -3,11 +3,11 @@
 import fs from 'fs'
 import path from 'path'
 import { ClientFunction, Selector } from 'testcafe'
-import { queries } from 'dom-testing-library'
+import { queries } from '@testing-library/dom'
 
 const DOM_TESTING_LIBRARY_UMD_PATH = path.join(
   './node_modules',
-  'dom-testing-library/dist/dom-testing-library.umd.js',
+  '@testing-library/dom/dist/@testing-library/dom.umd.js',
 )
 const DOM_TESTING_LIBRARY_UMD = fs.readFileSync(DOM_TESTING_LIBRARY_UMD_PATH).toString()
 
@@ -17,7 +17,7 @@ const DOM_TESTING_LIBRARY_UMD = fs.readFileSync(DOM_TESTING_LIBRARY_UMD_PATH).to
 export async function configure(options, t) {
   const configFunction =
     `
-  window.DomTestingLibrary.configure(${JSON.stringify(options)});
+  window.TestingLibraryDom.configure(${JSON.stringify(options)});
 `;
   await new ClientFunction(new Function(configFunction))();
 
@@ -63,7 +63,7 @@ Object.keys(queries).forEach(queryName => {
   module.exports[queryName] = Selector(
     new Function(
       `
-      return DomTestingLibrary.${queryName}(document.body, ...arguments);
+      return TestingLibraryDom.${queryName}(document.body, ...arguments);
       `,
     ),
   )
@@ -77,7 +77,7 @@ export const within = async sel => {
 
       window.TestcafeTestingLibrary = window.TestcafeTestingLibrary || {}
       const elem = document.querySelector("${sanitizedSel}");
-      window.TestcafeTestingLibrary["within_${sanitizedSel}"] = DomTestingLibrary.within(elem);
+      window.TestcafeTestingLibrary["within_${sanitizedSel}"] = TestingLibraryDom.within(elem);
 
     `,
     ),
