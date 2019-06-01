@@ -62,7 +62,7 @@ This module is distributed via [npm][npm] which is bundled with [node][node] and
 should be installed as one of your project's `devDependencies`:
 
 ```
-npm install --save-dev testcafe-testing-library
+npm install --save-dev @testing-library/testcafe
 ```
 
 ## Usage
@@ -95,11 +95,11 @@ MIT
 [build-badge]: https://img.shields.io/travis/testing-library/testcafe-testing-library.svg?style=flat-square
 [build]: https://travis-ci.org/testing-library/testcafe-testing-library
 [coverage]: https://codecov.io/github/testing-library/testcafe-testing-library
-[version-badge]: https://img.shields.io/npm/v/testcafe-testing-library.svg?style=flat-square
-[package]: https://www.npmjs.com/package/testcafe-testing-library
-[downloads-badge]: https://img.shields.io/npm/dm/testcafe-testing-library.svg?style=flat-square
-[npmtrends]: http://www.npmtrends.com/testcafe-testing-library
-[license-badge]: https://img.shields.io/npm/l/testcafe-testing-library.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/@testing-library/testcafe.svg?style=flat-square
+[package]: https://www.npmjs.com/package/@testing-library/testcafe
+[downloads-badge]: https://img.shields.io/npm/dm/@testing-library/testcafe.svg?style=flat-square
+[npmtrends]: http://www.npmtrends.com/@testing-library/testcafe
+[license-badge]: https://img.shields.io/npm/l/@testing-library/testcafe.svg?style=flat-square
 [license]: https://github.com/testing-library/testcafe-testing-library/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
