@@ -3,6 +3,7 @@
   "version": "1.0.1-semantically-released",
   "description": "",
   "main": "dist/index.js",
+  "typings": "typings",
   "scripts": {
     "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build",
@@ -16,7 +17,8 @@
     "semantic-release": "semantic-release"
   },
   "files": [
-    "dist"
+    "dist",
+    "typings"
   ],
   "keywords": [],
   "author": "",
