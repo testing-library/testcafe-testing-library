@@ -40,10 +40,20 @@
       ]
     },
     {
+
       "login": "vanhoofmaarten",
       "name": "Maarten Van Hoof",
       "avatar_url": "https://avatars1.githubusercontent.com/u/2543633?v=4",
       "profile": "http://mrtnvh.com",
+      "contributions": [
+        "code"
+      ]
+     },
+     {
+      "login": "dobogo",
+      "name": "Katsuya Hino",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1498117?v=4",
+      "profile": "https://github.com/dobogo",
       "contributions": [
         "code"
       ]
