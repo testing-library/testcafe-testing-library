@@ -5,7 +5,6 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
-
     {
       "login": "benmonro",
       "name": "Ben Monro",
@@ -39,11 +38,20 @@
         "code",
         "question"
       ]
+    },
+    {
+      "login": "vanhoofmaarten",
+      "name": "Maarten Van Hoof",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2543633?v=4",
+      "profile": "http://mrtnvh.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "testcafe-testing-library",
-  "projectOwner": "benmonro",
+  "projectOwner": "testing-library",
   "repoType": "github",
   "repoHost": "https://github.com"
 }
