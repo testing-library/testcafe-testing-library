@@ -9,11 +9,12 @@
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
     "test:unit": "kcd-scripts test --no-watch --config=jest.config.js",
+    "test:unit:monorepo": "cd tests/unit && kcd-scripts test --no-watch --config=../../jest.config.js",
     "test:testcafe:serve": "serve --listen 13370 ./test-app",
     "test:testcafe:run": "testcafe --skip-js-errors",
     "validate": "kcd-scripts validate build,lint,test",
     "test:testcafe": "npm-run-all --silent --parallel --race test:testcafe:serve test:testcafe:run",
-    "test": "npm-run-all --parallel test:unit test:testcafe",
+    "test": "npm-run-all --parallel test:unit test:unit:monorepo test:testcafe",
     "semantic-release": "semantic-release"
   },
   "files": [
