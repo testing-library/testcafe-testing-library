@@ -6,8 +6,9 @@ import { ClientFunction, Selector } from 'testcafe'
 import { queries } from '@testing-library/dom'
 
 const DOM_TESTING_LIBRARY_UMD_PATH = path.join(
-  './node_modules',
-  '@testing-library/dom/dist/@testing-library/dom.umd.js',
+  require.resolve( '@testing-library/dom' ),
+  '../../',
+  'dist/@testing-library/dom.umd.js',
 )
 const DOM_TESTING_LIBRARY_UMD = fs.readFileSync(DOM_TESTING_LIBRARY_UMD_PATH).toString()
 
