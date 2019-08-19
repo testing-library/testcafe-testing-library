@@ -27,7 +27,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "@testing-library/dom": "^5.0.1",
-    "testcafe": "^1.1.2"
+    "testcafe": "^1.4.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
