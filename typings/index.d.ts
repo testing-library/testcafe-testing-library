@@ -1,10 +1,6 @@
 import { BoundFunction, IConfig, queries } from '@testing-library/dom';
 import { Selector, t, ClientScript } from 'testcafe';
 
-export function addTestcafeTestingLibrary(
-    testController: typeof t
-): Promise<void>;
-
 export function configureOnce(
     options: Pick<IConfig, 'testIdAttribute'>
 ): Promise<void>
