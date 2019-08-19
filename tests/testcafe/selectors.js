@@ -8,11 +8,11 @@ import {
   getByTestId,
   getAllByText,
   queryAllByText,
-  addTestcafeTestingLibrary,
+
 } from '../../src/'
 
 // eslint-disable-next-line babel/no-unused-expressions
-fixture`selectors`.beforeEach(addTestcafeTestingLibrary)
+fixture`selectors`
   .page`http://localhost:13370`
 
 test('getByPlaceHolderText', async t => {
@@ -63,6 +63,11 @@ test('still works after browser page load', async t => {
     .click(getByText('Go to Page 2'))
     .expect(getByText('second page').exists).ok()
 })
+
+test('still works after reload', async (t) => {
+  await t.eval(() => location.reload(true));
+  await t.expect(getByText('getByText').exists).ok();
+});
 
 test.skip('getByTestId only throws the error message', async t => {
   const testId = 'Some random id'
