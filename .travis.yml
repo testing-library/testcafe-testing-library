@@ -6,7 +6,7 @@ addons:
     sources:
       - google-chrome
     packages:
-      - google-chrome-latest fluxbox
+      - google-chrome-beta fluxbox
 before_install:
   - stty cols 80
   - apt-get install gconf-service
