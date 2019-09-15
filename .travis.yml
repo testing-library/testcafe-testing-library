@@ -7,6 +7,8 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable fluxbox
+before_install:
+  - apt-get install gconf-service
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
@@ -15,16 +17,16 @@ before_script:
 language: node_js
 cache:
   directories:
-    - '~/.npm'
+    - "~/.npm"
 notifications:
   email: false
-node_js: '8'
+node_js: "8"
 before_install:
   - stty cols 80
 install: npm ci
 script: npm run validate
 after_success: npx semantic-release
 branches:
-  only: 
-  - master
-  - next
+  only:
+    - master
+    - next
