@@ -2,19 +2,21 @@ dist: trusty
 sudo: required
 addons:
   firefox: latest
-before_install:
-  - stty cols 80
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq unzip chromium-browser
-  - sudo apt-get install libxss1
-  - sudo apt-get install libappindicator1
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
-  - sudo chmod u+s /opt
-  - sleep 3
-  - fluxbox >/dev/null 2>&1 &
+addons:
+  chrome: stable
+# before_install:
+#   - stty cols 80
+#   - export DISPLAY=:99.0
+#   - sh -e /etc/init.d/xvfb start
+#   - sudo apt-get update -qq
+#   - sudo apt-get install -qq unzip chromium-browser
+#   - sudo apt-get install libxss1
+#   - sudo apt-get install libappindicator1
+#   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#   - sudo dpkg -i google-chrome*.deb
+#   - sudo chmod u+s /opt
+#   - sleep 3
+#   - fluxbox >/dev/null 2>&1 &
 language: node_js
 cache:
   directories:
