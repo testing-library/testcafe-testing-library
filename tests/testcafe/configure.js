@@ -1,10 +1,9 @@
 /* eslint-disable import/named */
-import { configure, getByTestId, getByText, addTestcafeTestingLibrary } from '../../src'
-
+import { configure, configureOnce, getByTestId, getByText } from '../../src'
 
 
 // eslint-disable-next-line babel/no-unused-expressions
-fixture`configure`.beforeEach(addTestcafeTestingLibrary.configure({ testIdAttribute: 'data-automation-id' }))
+fixture`configure`.clientScripts(configure({ testIdAttribute: 'data-automation-id' }))
     .page`http://localhost:13370`
 
 
@@ -21,6 +20,6 @@ test('still works after browser page load', async t => {
 })
 
 test('can be used standalone', async t => {
-    await configure({ testIdAttribute: 'data-other-test-id' });
+    await configureOnce({ testIdAttribute: 'data-other-test-id' });
     await t.click(getByTestId('other-id'));
 })

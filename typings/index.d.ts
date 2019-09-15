@@ -1,17 +1,16 @@
-import {BoundFunction, IConfig, queries} from '@testing-library/dom';
-import {Selector, t} from 'testcafe';
+import { BoundFunction, IConfig, queries } from '@testing-library/dom';
+import { Selector, t, ClientScript } from 'testcafe';
 
-export function addTestcafeTestingLibrary(
-    testController: typeof t
-): Promise<void>;
+export function configureOnce(
+    options: Pick<IConfig, 'testIdAttribute'>
+): Promise<void>
 
 export function configure(
-    options: Pick<IConfig, 'testIdAttribute'>,
-    testController: typeof t
-): Promise<void>;
+    options: Pick<IConfig, 'testIdAttribute'>
+): ClientScript;
 
 export type TestcafeBoundFunction<T> = (...params: Parameters<BoundFunction<T>>) => Selector;
-export type TestcafeBoundFunctions<T> = {[P in keyof T]: TestcafeBoundFunction<T[P]>};
+export type TestcafeBoundFunctions<T> = { [P in keyof T]: TestcafeBoundFunction<T[P]> };
 
 export function within(selector: string): Promise<TestcafeBoundFunctions<typeof queries>>;
 
