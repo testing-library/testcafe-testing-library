@@ -31,25 +31,18 @@ Object.keys(queries).forEach(queryName => {
   )
 })
 
-export const within = async sel => {
-  const sanitizedSel = sel.replace(/"/g, "'")
-  await ClientFunction(
-    new Function(
-      ` 
+export const within = async selector => {
+  const sanitizedSelector = selector.replace(/"/g, "'")
 
-      window.TestcafeTestingLibrary = window.TestcafeTestingLibrary || {}
-      const elem = document.querySelector("${sanitizedSel}");
-      window.TestcafeTestingLibrary["within_${sanitizedSel}"] = TestingLibraryDom.within(elem);
-
-    `,
-    ),
-  )()
   const container = {}
 
   Object.keys(queries).forEach(queryName => {
     container[queryName] = Selector(
       new Function(
-        `return window.TestcafeTestingLibrary["within_${sanitizedSel}"].${queryName}(...arguments)`,
+        `
+        window.TestcafeTestingLibrary = window.TestcafeTestingLibrary || {}
+        window.TestcafeTestingLibrary["within_${sanitizedSelector}"] = window.TestcafeTestingLibrary["within_${sanitizedSelector}"] || TestingLibraryDom.within(document.querySelector("${sanitizedSelector}"))
+        return window.TestcafeTestingLibrary["within_${sanitizedSelector}"].${queryName}(...arguments)`,
       ),
     )
   })

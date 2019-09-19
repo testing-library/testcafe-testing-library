@@ -1,5 +1,5 @@
 import { Selector } from 'testcafe'
-import { within } from '../../src'
+import { within, getByText as gbt } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`within`
@@ -26,4 +26,12 @@ test('quotes in selector', async t => {
     .click(getByText('Button Text'))
     .expect(Selector('button').withExactText('Button Clicked').exists)
     .ok()
+});
+
+test('still works after browser page reload', async t => {
+  const nested = await within('#nested');
+  await t.expect(nested.getByText('Button Text').exists).ok()
+
+  await t.eval(() => location.reload(true));
+  await t.expect(nested.getByText('Button Text').exists).ok()
 })
