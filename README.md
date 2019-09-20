@@ -124,3 +124,4 @@ MIT
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [dom-testing-library]: https://github.com/testing-library/dom-testing-library
 [testcafe]: https://devexpress.github.io/testcafe/
+
