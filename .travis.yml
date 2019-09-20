@@ -13,18 +13,18 @@ before_script:
   - sleep 3
   - fluxbox >/dev/null 2>&1 &
 language: node_js
-cache:
-  directories:
-    - '~/.npm'
-notifications:
-  email: false
-node_js: '8'
+node_js: "stable"
 before_install:
   - stty cols 80
+cache:
+  directories:
+    - "~/.npm"
+notifications:
+  email: false
 install: npm ci
 script: npm run validate
 after_success: npx semantic-release
 branches:
-  only: 
-  - master
-  - next
+  only:
+    - master
+    - next
