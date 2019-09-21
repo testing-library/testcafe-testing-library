@@ -31,7 +31,7 @@ Object.keys(queries).forEach(queryName => {
   )
 })
 
-export const within = async selector => {
+export const within = selector => {
   const sanitizedSelector = selector.replace(/"/g, "'")
 
   const container = {}

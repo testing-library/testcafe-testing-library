@@ -1,5 +1,5 @@
 import { Selector } from 'testcafe'
-import { within, getByText as gbt } from '../../src'
+import { within } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`within`
