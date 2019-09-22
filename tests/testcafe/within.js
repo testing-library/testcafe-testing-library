@@ -1,5 +1,6 @@
 import { Selector } from 'testcafe'
-import { within } from '../../src'
+// eslint-disable-next-line import/named
+import { within, getByTestId } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`within`
@@ -34,4 +35,11 @@ test('still works after browser page reload', async t => {
 
   await t.eval(() => location.reload(true));
   await t.expect(nested.getByText('Button Text').exists).ok()
-})
+});
+
+
+test('works with nested selectors', async t => {
+  const nested = await within(getByTestId('nested'));
+  await t.expect(nested.getByText('Button Text').exists).ok()
+
+});
