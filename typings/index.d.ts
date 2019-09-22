@@ -12,7 +12,7 @@ export function configure(
 export type TestcafeBoundFunction<T> = (...params: Parameters<BoundFunction<T>>) => Selector;
 export type TestcafeBoundFunctions<T> = { [P in keyof T]: TestcafeBoundFunction<T[P]> };
 
-export function within(selector: string): Promise<TestcafeBoundFunctions<typeof queries>>;
+export function within(selector: string | TestcafeBoundFunction): Promise<TestcafeBoundFunctions<typeof queries>>;
 
 export const getByLabelText: TestcafeBoundFunction<typeof queries.getByLabelText>;
 export const getAllByLabelText: TestcafeBoundFunction<typeof queries.getAllByLabelText>;

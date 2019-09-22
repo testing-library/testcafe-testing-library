@@ -32,7 +32,11 @@
   <section>
     <h2>getByText</h2>
     <button onclick="this.innerText = 'Button Clicked'">Button Text</button>
-    <div id="nested">
+    <div id="nested" data-testid="nested">
+      <h3>getByText within</h3>
+      <button onclick="this.innerText = 'Button Clicked'">Button Text</button>
+    </div>
+    <div id="nested2" data-testid="nested2">
       <h3>getByText within</h3>
       <button onclick="this.innerText = 'Button Clicked'">Button Text</button>
     </div>

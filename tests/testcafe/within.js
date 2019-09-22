@@ -1,5 +1,6 @@
 import { Selector } from 'testcafe'
-import { within } from '../../src'
+// eslint-disable-next-line import/named
+import { within, getAllByTestId, getByTestId } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`within`
@@ -34,4 +35,38 @@ test('still works after browser page reload', async t => {
 
   await t.eval(() => location.reload(true));
   await t.expect(nested.getByText('Button Text').exists).ok()
-})
+});
+
+
+test('works with nested selectors', async t => {
+  const nested = await within(getByTestId('nested'));
+  await t.expect(nested.getByText('Button Text').exists).ok()
+
+});
+
+test('works with nested selector from "All" query with index - regex', async t => {
+  const nestedDivs = getAllByTestId(/nested/);
+  await t.expect(nestedDivs.count).eql(2);
+  const nested = await within(nestedDivs.nth(0));
+
+  await t.expect(nested.getByText('Button Text').exists).ok();
+});
+
+test('works with nested selector from "All" query with index - exact:false', async t => {
+  const nestedDivs = getAllByTestId('nested', { exact: false });
+  await t.expect(nestedDivs.count).eql(2);
+  const nested = await within(nestedDivs.nth(0));
+
+  await t.expect(nested.getByText('Button Text').exists).ok();
+});
+
+test('works with nested selector from "All" query with index - function', async t => {
+  const nestedDivs = getAllByTestId(
+    (content, element) =>
+      element.getAttribute('data-testid').startsWith('nested')
+  );
+  await t.expect(nestedDivs.count).eql(2);
+  const nested = await within(nestedDivs.nth(0));
+
+  await t.expect(nested.getByText('Button Text').exists).ok();
+});
