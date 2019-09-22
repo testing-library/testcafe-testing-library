@@ -67,6 +67,10 @@ export const within = async selector => {
   }
 
   if (selector.constructor.name === SELECTOR_TYPE) {
+    const count = await selector.count;
+    if (count > 1) {
+      throw new Error(`within() requires a single element, found ${count}`);
+    }
     const el = await selector;
     const withinQueryName = el.getAttribute('data-tctl-queryname');
 

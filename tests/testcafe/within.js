@@ -70,3 +70,20 @@ test('works with nested selector from "All" query with index - function', async 
 
   await t.expect(nested.getByText('Button Text').exists).ok();
 });
+
+
+test('should throw error if count > 1', async t => {
+  const nestedDivs = getAllByTestId(/nested/);
+
+  await t.expect(nestedDivs.count).eql(2);
+  let didThrow = false;
+  try {
+    await within(nestedDivs);
+  } catch (e) {
+    didThrow = true;
+  }
+  await t.expect(didThrow).ok();
+});
+
+
+
