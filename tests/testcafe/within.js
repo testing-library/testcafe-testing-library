@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe'
 // eslint-disable-next-line import/named
-import { within, getByTestId } from '../../src'
+import { within, getAllByTestId, getByTestId } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`within`
@@ -42,4 +42,12 @@ test('works with nested selectors', async t => {
   const nested = await within(getByTestId('nested'));
   await t.expect(nested.getByText('Button Text').exists).ok()
 
+});
+
+test('works with nested selector from "All" query with index', async t => {
+  const nestedDivs = getAllByTestId('nested', { exact: false });
+  await t.expect(nestedDivs.count).eql(2);
+  const nested = await within(nestedDivs.nth(0));
+
+  await t.expect(nested.getByText('Button Text').exists).ok();
 });

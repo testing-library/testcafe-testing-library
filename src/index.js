@@ -24,38 +24,45 @@ export function configure(options) {
 
 
 Object.keys(queries).forEach(queryName => {
-  const sel = Selector(
+  module.exports[queryName] = Selector(
     new Function(
       `
-      const el = TestingLibraryDom.${queryName}(document.body, ...arguments);
-      if(!Array.isArray(el)) {
-        el.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments)));
-        el.setAttribute('data-tctl-queryname', '${queryName}');  
+      const els = TestingLibraryDom.${queryName}(document.body, ...arguments);
+      if(!Array.isArray(els)) {
+        els.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments)));
+        els.setAttribute('data-tctl-queryname', '${queryName}');  
+      } else {
+        els.forEach((el,i) => {
+          el.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments)));
+          el.setAttribute('data-tctl-queryname', '${queryName}');  
+          el.setAttribute('data-tctl-index', i);     
+        });
       }
-      return el;
+      return els;
       `,
     ),
   );
-  sel.addCustomDOMProperties({
-    queryName: () => `${queryName}`,
-    tctlArgs: (el) => el.getAttribute('data-tctl-args')
-  })
-  module.exports[queryName] = sel;
 })
 
 export const within = async selector => {
-  if (selector.constructor.name === SELECTOR_TYPE) {
+  if (selector instanceof Function) {
+    return within(selector());
+  }
 
+  if (selector.constructor.name === SELECTOR_TYPE) {
     const el = await selector;
     const withinQueryName = el.getAttribute('data-tctl-queryname');
     const withinArgs = JSON.parse(el.getAttribute('data-tctl-args'));
+    const withinIndexer = el.hasAttribute('data-tctl-index') ? `[${el.getAttribute('data-tctl-index')}]` : '';
 
     const withinSelectors = {};
     Object.keys(queries).forEach(queryName => {
       withinSelectors[queryName] = Selector(
         new Function(`
+
         const {within, ${withinQueryName}} = TestingLibraryDom;
-        return within(${withinQueryName}(document.body, ${JSON.stringify(...withinArgs)})).${queryName}(...arguments);
+        const el = ${withinQueryName}(document.body, ${JSON.stringify(...withinArgs)})${withinIndexer};
+        return within(el).${queryName}(...arguments);
     `
         ));
     });
