@@ -29,8 +29,10 @@ Object.keys(queries).forEach(queryName => {
       `
       if(!window.tctlReplacer) {
         window.tctlReplacer = function tctlReplacer(key, value) {
-          if (value instanceof RegExp)
+          if (value instanceof RegExp)  
             return ("__REGEXP " + value.toString());
+          else if (typeof value === 'function') 
+            return ("__FUNCTION " + value.toString());
           else
             return value;
         }
@@ -72,6 +74,8 @@ export const within = async selector => {
       .map(arg => {
         if (arg instanceof RegExp) {
           return arg.toString();
+        } else if (arg.toString().indexOf('__FUNCTION ') == 0) {
+          return (arg.replace('__FUNCTION ', ''))
         } else {
           return JSON.stringify(arg);
         }

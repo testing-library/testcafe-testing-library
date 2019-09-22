@@ -59,3 +59,14 @@ test('works with nested selector from "All" query with index - exact:false', asy
 
   await t.expect(nested.getByText('Button Text').exists).ok();
 });
+
+test('works with nested selector from "All" query with index - function', async t => {
+  const nestedDivs = getAllByTestId(
+    (content, element) =>
+      element.getAttribute('data-testid').startsWith('nested')
+  );
+  await t.expect(nestedDivs.count).eql(2);
+  const nested = await within(nestedDivs.nth(0));
+
+  await t.expect(nested.getByText('Button Text').exists).ok();
+});
