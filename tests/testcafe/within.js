@@ -44,7 +44,15 @@ test('works with nested selectors', async t => {
 
 });
 
-test('works with nested selector from "All" query with index', async t => {
+test('works with nested selector from "All" query with index - regex', async t => {
+  const nestedDivs = getAllByTestId(/nested/);
+  await t.expect(nestedDivs.count).eql(2);
+  const nested = await within(nestedDivs.nth(0));
+
+  await t.expect(nested.getByText('Button Text').exists).ok();
+});
+
+test('works with nested selector from "All" query with index - exact:false', async t => {
   const nestedDivs = getAllByTestId('nested', { exact: false });
   await t.expect(nestedDivs.count).eql(2);
   const nested = await within(nestedDivs.nth(0));

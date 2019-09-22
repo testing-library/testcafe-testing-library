@@ -7,5 +7,5 @@
     "chrome:headless",
     "firefox:headless"
   ],
-  "concurrency": 1
+  "concurrency": 3
 }

@@ -27,13 +27,21 @@ Object.keys(queries).forEach(queryName => {
   module.exports[queryName] = Selector(
     new Function(
       `
+      if(!window.tctlReplacer) {
+        window.tctlReplacer = function tctlReplacer(key, value) {
+          if (value instanceof RegExp)
+            return ("__REGEXP " + value.toString());
+          else
+            return value;
+        }
+      }
       const els = TestingLibraryDom.${queryName}(document.body, ...arguments);
       if(!Array.isArray(els)) {
-        els.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments)));
+        els.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments), window.tctlReplacer, 0));
         els.setAttribute('data-tctl-queryname', '${queryName}');  
       } else {
         els.forEach((el,i) => {
-          el.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments)));
+          el.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments), window.tctlReplacer, 0));
           el.setAttribute('data-tctl-queryname', '${queryName}');  
           el.setAttribute('data-tctl-index', i);     
         });
@@ -43,6 +51,13 @@ Object.keys(queries).forEach(queryName => {
     ),
   );
 })
+function reviver(key, value) {
+  if (value.toString().indexOf('__REGEXP ') == 0) {
+    const m = value.split('__REGEXP ')[1].match(/\/(.*)\/(.*)?/);
+    return new RegExp(m[1], m[2] || '');
+  } else
+    return value;
+}
 
 export const within = async selector => {
   if (selector instanceof Function) {
@@ -52,7 +67,16 @@ export const within = async selector => {
   if (selector.constructor.name === SELECTOR_TYPE) {
     const el = await selector;
     const withinQueryName = el.getAttribute('data-tctl-queryname');
-    const withinArgs = JSON.parse(el.getAttribute('data-tctl-args'));
+
+    const withinArgs = JSON.parse(el.getAttribute('data-tctl-args'), reviver)
+      .map(arg => {
+        if (arg instanceof RegExp) {
+          return arg.toString();
+        } else {
+          return JSON.stringify(arg);
+        }
+      }).join(', ');
+
     const withinIndexer = el.hasAttribute('data-tctl-index') ? `[${el.getAttribute('data-tctl-index')}]` : '';
 
     const withinSelectors = {};
@@ -61,7 +85,7 @@ export const within = async selector => {
         new Function(`
 
         const {within, ${withinQueryName}} = TestingLibraryDom;
-        const el = ${withinQueryName}(document.body, ${JSON.stringify(...withinArgs)})${withinIndexer};
+        const el = ${withinQueryName}(document.body, ${withinArgs})${withinIndexer};
         return within(el).${queryName}(...arguments);
     `
         ));
