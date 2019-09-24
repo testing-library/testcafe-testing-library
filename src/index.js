@@ -25,6 +25,10 @@ export function configure(options) {
 
 Object.keys(queries).forEach(queryName => {
   module.exports[queryName] = Selector(
+    (...args) => window.TestingLibraryDom[queryName](document.body, ...args)
+    , { dependencies: { queryName } })
+
+  const no = Selector(
     new Function(
       `
       if(!window.tctlReplacer) {
@@ -100,17 +104,16 @@ export const within = async selector => {
     });
     return withinSelectors;
   } else if (typeof (selector) === 'string') {
-    const sanitizedSelector = selector.replace(/"/g, "'");
+    // const sanitizedSelector = selector.replace(/"/g, "'");
 
     const withinSelectors = {};
 
     Object.keys(queries).forEach(queryName => {
-      withinSelectors[queryName] = Selector(
-        new Function(
-          `
-        const {within} = TestingLibraryDom;
-        return within(document.querySelector("${sanitizedSelector}")).${queryName}(...arguments);
-       `),
+      withinSelectors[queryName] = Selector((...args) => {
+        // eslint-disable-next-line no-shadow
+        const { within } = window.TestingLibraryDom;
+        return within(document.querySelector(selector))[queryName](...args);
+      }, { dependencies: { queryName, selector } }
       )
     })
 
