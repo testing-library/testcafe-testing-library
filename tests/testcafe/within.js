@@ -72,7 +72,7 @@ test.skip('works with nested selector from "All" query with index - function', a
 });
 
 
-test('should throw error if count > 1', async t => {
+test.skip('should throw error if count > 1', async t => {
   const nestedDivs = getAllByTestId(/nested/);
 
   await t.expect(nestedDivs.count).eql(2);
