@@ -21,73 +21,49 @@ export function configure(options) {
 `;
   return { content: configFunction };
 }
+const withinSelectors = {};
+Object.keys(queries).forEach(withinQueryName => {
 
+  withinSelectors[withinQueryName] =
+    new Function(`
+    const els = arguments[0];
+    if(els.length > 1) {
+      throw new Error("within() only works with a single element, found " + els.length);
+    }
+    const el = els[0];
+    const args = Array.from(arguments).slice(1);
+    return window.TestingLibraryDom.within(el).${withinQueryName}.apply(null, args);
+  `)
+
+});
 
 Object.keys(queries).forEach(queryName => {
 
-  const withinSelectors = {};
-  Object.keys(queries).forEach(withinQueryName => {
-
-    withinSelectors[withinQueryName] =
-      new Function(`
-      const el = arguments[0][0];
-      const args = Array.from(arguments).slice(1);
-      return window.TestingLibraryDom.within(el).${withinQueryName}.apply(null, args);
-    `)
-
-  });
-
   module.exports[queryName] = Selector(
     (...args) => window.TestingLibraryDom[queryName](document.body, ...args)
-    , { dependencies: { queryName } })
-    .addCustomMethods(withinSelectors, { returnDOMNodes: true });
+    , { dependencies: { queryName } });
 
 })
 
 export const within = sel => {
-  // if (sel instanceof Function) {
-  //   return within(sel());
-  // }
-  if (sel.getByText) { //sel.constructor.name === SELECTOR_TYPE) {
+  if (sel instanceof Function) {
+    return within(sel());
+  }
+  if (isSelector(sel)) {
     // const count = await sel.count;
     // if (count > 1) {
     //   throw new Error(`within() requires a single element, found ${count}`);
     // }
 
-    return sel;
-    //   // TODO, find a way to inject queryNames dynamically
-    //   // I would like to use the above, but i'm willing to use the eval below if need be.  Wasn't sure if 
-    //   // there's a way to pass `{dependencies}` to a customMethod.
-    //   //
-    //   // withinSelectors[queryName] = new Function(`
-    //   //   const [el, ...args] = arguments;
-    //   //   return window.TestingLibraryDom.within(el).${queryName}(...args);
-    //   // `)
-    // });
-    // withinSelector.addCustomMethods({ ...withinSelectors }, { returnDOMNodes: true });
-
-    // const w = await Selector(
-    //   () => {
-    //     return sel();
-    //   }, { dependencies: { sel } });
-
-
-
+    return (sel).addCustomMethods(withinSelectors, { returnDOMNodes: true })
   } else if (typeof (sel) === 'string') {
-    const withinSelectors = {};
-
-    Object.keys(queries).forEach(queryName => {
-      withinSelectors[queryName] = Selector((...args) => {
-        // eslint-disable-next-line no-shadow
-        const { within } = window.TestingLibraryDom;
-        return within(document.querySelector(sel))[queryName](...args);
-      }, { dependencies: { queryName, sel } }
-      )
-    })
-
-    return withinSelectors;
+    return within(Selector(sel));
   } else {
-    throw new Error(`"within" only accepts a string or another testing-library query as a parameter. ${sel} is not one of those`)
+    throw new Error(`"within" only accepts a query (getBy, queryBy, etc), string or testcafe Selector`)
   }
+}
+
+function isSelector(sel) {
+  return sel.constructor.name === SELECTOR_TYPE;
 }
 

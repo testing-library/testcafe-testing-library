@@ -72,19 +72,30 @@ test('works with nested selector from "All" query with index - function', async 
   await t.expect(nested.getByText('Button Text').exists).ok();
 });
 
-test('works on a standard testcafe nested selector', () => {
-  const nested = Selector("#nested");
+test('works on a standard testcafe nested selector', async (t) => {
+  const nested = Selector('#nested');
 
-  await t.expect(within(nested).getByText("Button Text").exists).ok()
+  await t.expect(within(nested).getByText('Button Text').exists).ok()
 });
 
-test.skip('should throw error if count > 1', async t => {
+test('should throw if invalid param', async t => {
+  let didThrow = false;
+  try {
+    await t.expect(within({ 'foo': 'bar' }).getByText('baz').exists).ok();
+
+  } catch (e) {
+    didThrow = true;
+  }
+  await t.expect(didThrow).ok();
+});
+
+test('should throw error if count > 1', async t => {
   const nestedDivs = getAllByTestId(/nested/);
 
   await t.expect(nestedDivs.count).eql(2);
   let didThrow = false;
   try {
-    await within(nestedDivs);
+    await t.expect(within(nestedDivs).getByText('blah'));
   } catch (e) {
     didThrow = true;
   }
