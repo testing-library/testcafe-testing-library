@@ -2,10 +2,9 @@
   "clientScripts": [
     "./node_modules/@testing-library/dom/dist/@testing-library/dom.umd.js"
   ],
-  "src": "tests/testcafe/**/*.js",
+  "src": "tests/testcafe/within.js",
   "browsers": [
-    "chrome:headless",
-    "firefox:headless"
+    "chrome:headless"
   ],
-  "concurrency": 3
+  "concurrency": 1
 }

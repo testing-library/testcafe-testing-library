@@ -24,35 +24,37 @@ export function configure(options) {
 
 
 Object.keys(queries).forEach(queryName => {
+
+  const withinSelectors = {};
+  Object.keys(queries).forEach(withinQueryName => {
+
+    withinSelectors[withinQueryName] =
+      new Function(`
+      const el = arguments[0][0];
+      const args = Array.from(arguments).slice(1);
+      return window.TestingLibraryDom.within(el).${withinQueryName}.apply(null, args);
+    `)
+
+  });
+
   module.exports[queryName] = Selector(
     (...args) => window.TestingLibraryDom[queryName](document.body, ...args)
     , { dependencies: { queryName } })
+    .addCustomMethods(withinSelectors, { returnDOMNodes: true });
 
 })
-function reviver(key, value) {
-  if (value.toString().indexOf('__REGEXP ') == 0) {
-    const m = value.split('__REGEXP ')[1].match(/\/(.*)\/(.*)?/);
-    return new RegExp(m[1], m[2] || '');
-  } else
-    return value;
-}
 
-export const within = async sel => {
+export const within = sel => {
   // if (sel instanceof Function) {
   //   return within(sel());
   // }
-
-  if (sel.constructor.name === SELECTOR_TYPE) {
+  if (sel.getByText) { //sel.constructor.name === SELECTOR_TYPE) {
     // const count = await sel.count;
     // if (count > 1) {
     //   throw new Error(`within() requires a single element, found ${count}`);
     // }
 
-    // const withinSelectors = {};
-    // Object.keys(queries).forEach(queryName => {
-    //   withinSelectors[queryName] = (el, ...args) => {
-    //     return window.TestingLibraryDom.within(el)[queryName](...args);
-    //   };
+    return sel;
     //   // TODO, find a way to inject queryNames dynamically
     //   // I would like to use the above, but i'm willing to use the eval below if need be.  Wasn't sure if 
     //   // there's a way to pass `{dependencies}` to a customMethod.
@@ -64,15 +66,12 @@ export const within = async sel => {
     // });
     // withinSelector.addCustomMethods({ ...withinSelectors }, { returnDOMNodes: true });
 
-    return Selector(
-      () => {
-        return sel();
-      }, { dependencies: { sel } })
-      .addCustomMethods({
-        getByText: (el, ...args) => {
-          return window.TestingLibraryDom.within(el).getByText(...args);
-        }
-      }, { returnDOMNodes: true });
+    // const w = await Selector(
+    //   () => {
+    //     return sel();
+    //   }, { dependencies: { sel } });
+
+
 
   } else if (typeof (sel) === 'string') {
     const withinSelectors = {};
