@@ -50,11 +50,6 @@ export const within = sel => {
     return within(sel());
   }
   if (isSelector(sel)) {
-    // const count = await sel.count;
-    // if (count > 1) {
-    //   throw new Error(`within() requires a single element, found ${count}`);
-    // }
-
     return (sel).addCustomMethods(withinSelectors, { returnDOMNodes: true })
   } else if (typeof (sel) === 'string') {
     return within(Selector(sel));
