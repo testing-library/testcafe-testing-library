@@ -72,6 +72,11 @@ test('works with nested selector from "All" query with index - function', async 
   await t.expect(nested.getByText('Button Text').exists).ok();
 });
 
+test('works on a standard testcafe nested selector', () => {
+  const nested = Selector("#nested");
+
+  await t.expect(within(nested).getByText("Button Text").exists).ok()
+});
 
 test.skip('should throw error if count > 1', async t => {
   const nestedDivs = getAllByTestId(/nested/);
