@@ -21,102 +21,44 @@ export function configure(options) {
 `;
   return { content: configFunction };
 }
+const withinSelectors = {};
+Object.keys(queries).forEach(withinQueryName => {
 
+  withinSelectors[withinQueryName] =
+    new Function(`
+    const els = arguments[0];
+    if(els.length > 1) {
+      throw new Error("within() only works with a single element, found " + els.length);
+    }
+    const el = els[0];
+    const args = Array.from(arguments).slice(1);
+    return window.TestingLibraryDom.within(el).${withinQueryName}.apply(null, args);
+  `)
+
+});
 
 Object.keys(queries).forEach(queryName => {
+
   module.exports[queryName] = Selector(
-    new Function(
-      `
-      if(!window.tctlReplacer) {
-        window.tctlReplacer = function tctlReplacer(key, value) {
-          if (value instanceof RegExp)  
-            return ("__REGEXP " + value.toString());
-          else if (typeof value === 'function') 
-            return ("__FUNCTION " + value.toString());
-          else
-            return value;
-        }
-      }
-      const els = TestingLibraryDom.${queryName}(document.body, ...arguments);
-      if(!Array.isArray(els)) {
-        els.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments), window.tctlReplacer, 0));
-        els.setAttribute('data-tctl-queryname', '${queryName}');  
-      } else {
-        els.forEach((el,i) => {
-          el.setAttribute('data-tctl-args', JSON.stringify(Array.from(arguments), window.tctlReplacer, 0));
-          el.setAttribute('data-tctl-queryname', '${queryName}');  
-          el.setAttribute('data-tctl-index', i);     
-        });
-      }
-      return els;
-      `,
-    ),
-  );
+    (...args) => window.TestingLibraryDom[queryName](document.body, ...args)
+    , { dependencies: { queryName } });
+
 })
-function reviver(key, value) {
-  if (value.toString().indexOf('__REGEXP ') == 0) {
-    const m = value.split('__REGEXP ')[1].match(/\/(.*)\/(.*)?/);
-    return new RegExp(m[1], m[2] || '');
-  } else
-    return value;
+
+export const within = sel => {
+  if (sel instanceof Function) {
+    return within(sel());
+  }
+  if (isSelector(sel)) {
+    return (sel).addCustomMethods(withinSelectors, { returnDOMNodes: true })
+  } else if (typeof (sel) === 'string') {
+    return within(Selector(sel));
+  } else {
+    throw new Error(`"within" only accepts a query (getBy, queryBy, etc), string or testcafe Selector`)
+  }
 }
 
-export const within = async selector => {
-  if (selector instanceof Function) {
-    return within(selector());
-  }
-
-  if (selector.constructor.name === SELECTOR_TYPE) {
-    const count = await selector.count;
-    if (count > 1) {
-      throw new Error(`within() requires a single element, found ${count}`);
-    }
-    const el = await selector;
-    const withinQueryName = el.getAttribute('data-tctl-queryname');
-
-    const withinArgs = JSON.parse(el.getAttribute('data-tctl-args'), reviver)
-      .map(arg => {
-        if (arg instanceof RegExp) {
-          return arg.toString();
-        } else if (arg.toString().indexOf('__FUNCTION ') == 0) {
-          return (arg.replace('__FUNCTION ', ''))
-        } else {
-          return JSON.stringify(arg);
-        }
-      }).join(', ');
-
-    const withinIndexer = el.hasAttribute('data-tctl-index') ? `[${el.getAttribute('data-tctl-index')}]` : '';
-
-    const withinSelectors = {};
-    Object.keys(queries).forEach(queryName => {
-      withinSelectors[queryName] = Selector(
-        new Function(`
-
-        const {within, ${withinQueryName}} = TestingLibraryDom;
-        const el = ${withinQueryName}(document.body, ${withinArgs})${withinIndexer};
-        return within(el).${queryName}(...arguments);
-    `
-        ));
-    });
-    return withinSelectors;
-  } else if (typeof (selector) === 'string') {
-    const sanitizedSelector = selector.replace(/"/g, "'");
-
-    const withinSelectors = {};
-
-    Object.keys(queries).forEach(queryName => {
-      withinSelectors[queryName] = Selector(
-        new Function(
-          `
-        const {within} = TestingLibraryDom;
-        return within(document.querySelector("${sanitizedSelector}")).${queryName}(...arguments);
-       `),
-      )
-    })
-
-    return withinSelectors;
-  } else {
-    throw new Error(`"within" only accepts a string or another testing-library query as a parameter. ${selector} is not one of those`)
-  }
+function isSelector(sel) {
+  return sel.constructor.name === SELECTOR_TYPE;
 }
 

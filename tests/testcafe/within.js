@@ -39,17 +39,18 @@ test('still works after browser page reload', async t => {
 
 
 test('works with nested selectors', async t => {
-  const nested = await within(getByTestId('nested'));
-  await t.expect(nested.getByText('Button Text').exists).ok()
-
+  await t.expect(within(getByTestId('nested')).getByText('Button Text').exists).ok();
 });
 
 test('works with nested selector from "All" query with index - regex', async t => {
   const nestedDivs = getAllByTestId(/nested/);
   await t.expect(nestedDivs.count).eql(2);
-  const nested = await within(nestedDivs.nth(0));
+  const nested = within(nestedDivs.nth(1));
 
-  await t.expect(nested.getByText('Button Text').exists).ok();
+  await t
+    .expect(nested.getByText('Button Text').exists).ok()
+    .expect(nested.getByText('text only in 2nd nested').exists).ok()
+
 });
 
 test('works with nested selector from "All" query with index - exact:false', async t => {
@@ -71,6 +72,22 @@ test('works with nested selector from "All" query with index - function', async 
   await t.expect(nested.getByText('Button Text').exists).ok();
 });
 
+test('works on a standard testcafe nested selector', async (t) => {
+  const nested = Selector('#nested');
+
+  await t.expect(within(nested).getByText('Button Text').exists).ok()
+});
+
+test('should throw if invalid param', async t => {
+  let didThrow = false;
+  try {
+    await t.expect(within({ 'foo': 'bar' }).getByText('baz').exists).ok();
+
+  } catch (e) {
+    didThrow = true;
+  }
+  await t.expect(didThrow).ok();
+});
 
 test('should throw error if count > 1', async t => {
   const nestedDivs = getAllByTestId(/nested/);
@@ -78,7 +95,7 @@ test('should throw error if count > 1', async t => {
   await t.expect(nestedDivs.count).eql(2);
   let didThrow = false;
   try {
-    await within(nestedDivs);
+    await t.expect(within(nestedDivs).getByText('blah'));
   } catch (e) {
     didThrow = true;
   }
