@@ -1,6 +1,6 @@
 import * as selectors from '../../src'
 
-/* eslint-enable impoort/namespace */
+/* eslint-enable import/namespace */
 
 test('exports expected selectors', () => {
   expect(selectors).toMatchObject(expect.any(Object))
