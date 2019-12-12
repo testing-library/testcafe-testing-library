@@ -40,7 +40,7 @@ Object.keys(queries).forEach(withinQueryName => {
 Object.keys(queries).forEach(queryName => {
 
   module.exports[queryName] = Selector(
-    (...args) => window.TestingLibraryDom[queryName](document.body, ...args)
+    (...args) => window.TestingLibraryDom[queryName.replace('find', 'query')](document.body, ...args)
     , { dependencies: { queryName } });
 
 })
