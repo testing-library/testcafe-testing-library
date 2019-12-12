@@ -8,6 +8,7 @@ import {
   getByTestId,
   getAllByText,
   queryAllByText,
+  findByText
 
 } from '../../src/'
 
@@ -55,7 +56,11 @@ test('queryAllByText', async t => {
   await t.expect(queryAllByText('Non-existing Button Text').exists).notOk()
 })
 
+test('findByText async', async t => {
+  await t.click(getByText('delayed'));
 
+  await t.expect(findByText('updated button async')).ok();
+})
 
 
 test('still works after browser page load', async t => {

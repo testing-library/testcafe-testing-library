@@ -73,10 +73,16 @@
     <button onclick="this.innerText = 'Jackie Kicked'">Jackie Chan 2</button>
   </section>
   <section>
+    <button
+      onclick="var self = this; setTimeout(() => {self.innerText = 'updated button async';}, 500)">delayed</button></button>
+  </section>
+  <section>
     <h2>navigate</h2>
     <a href="page2.html">Go to Page 2</a>
   </section>
-  <!-- Prettier unindents the script tag below -->
+
+  <!-- Prettier
+      unindents the script tag below -->
   <script>
     document
       .querySelector('[data-testid="image-with-random-alt-tag"]')
