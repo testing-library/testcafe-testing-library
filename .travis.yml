@@ -13,7 +13,9 @@ before_script:
   - sleep 3
   - fluxbox >/dev/null 2>&1 &
 language: node_js
-node_js: "stable"
+node_js:
+  - 10
+  - 12
 before_install:
   - stty cols 80
 cache:
