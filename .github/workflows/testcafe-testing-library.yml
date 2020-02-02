@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Run Tests on OS: ${{ matrix.os }} node version: ${{ matrix.node }}
+    name: 'Run Tests on OS: ${{ matrix.os }} node version: ${{ matrix.node }}'
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
