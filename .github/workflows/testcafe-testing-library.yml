@@ -19,7 +19,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - uses: actions/checkout@v1
       - run: npm ci
-      - run: npm run test:unit
+      - run: npm run validate
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
