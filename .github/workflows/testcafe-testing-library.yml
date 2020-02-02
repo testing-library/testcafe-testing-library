@@ -21,6 +21,6 @@ jobs:
         with:
           args: 'chrome tests/testcafe'
       - run: npx semantic-release
-        if: ${{ github.ref == 'master' }}
+        if: github.ref == 'master'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
