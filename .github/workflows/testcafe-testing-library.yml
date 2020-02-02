@@ -14,8 +14,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - uses: actions/checkout@v1
-      - name: Start server
-        run: npm run test:testcafe:serve
+      - run: npm ci
+      - run: npm run test:unit
+      - run: npm run test:testcafe:serve
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
