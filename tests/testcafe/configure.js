@@ -4,7 +4,7 @@ import { configure, configureOnce, getByTestId, getByText } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`configure`.clientScripts(configure({ testIdAttribute: 'data-automation-id' }))
-    .page`http://localhost:13370`
+    .page`../../test-app/index.html`
 
 
 test('supports alternative testIdAttribute', async t => {

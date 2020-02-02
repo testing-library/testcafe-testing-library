@@ -14,7 +14,7 @@ import {
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`selectors`
-  .page`http://localhost:13370`
+  .page`../../test-app/index.html`
 
 test('getByPlaceHolderText', async t => {
   await t.typeText(
