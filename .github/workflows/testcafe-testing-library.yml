@@ -20,4 +20,5 @@ jobs:
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
+          start: npm run test:testcafe:serve
           args: 'chrome tests/testcafe'
