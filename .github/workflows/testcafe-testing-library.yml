@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Run Tests Across Node.js Versions and Operating Systems
+    name: Run Tests on OS: ${{ matrix.os }} node version: ${{ matrix.node }}
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v1
         with:
-          node-version: $
+          node-version: ${{ matrix.node }}
       - uses: actions/checkout@v1
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
