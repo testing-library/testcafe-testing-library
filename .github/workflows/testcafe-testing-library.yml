@@ -4,7 +4,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: Run Tests Across Node.js Versions and Operating Systems
-    runs-on: $
+    runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
