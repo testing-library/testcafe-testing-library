@@ -7,8 +7,8 @@ jobs:
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [12]
+        os: [ubuntu-latest, macos-latest]
+        node: [12, 10]
     steps:
       - uses: actions/setup-node@v1
         with:
