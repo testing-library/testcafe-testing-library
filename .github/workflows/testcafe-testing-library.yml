@@ -23,7 +23,8 @@ jobs:
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
-          args: 'chrome tests/testcafe --disable-background-networking'
+          version: 1.6
+          args: 'all tests/testcafe'
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
