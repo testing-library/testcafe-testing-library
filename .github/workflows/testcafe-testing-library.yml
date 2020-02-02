@@ -1,4 +1,4 @@
-name: End-to-End Tests
+name: testcafe-testing-library
 on:
   push:
     branches:
@@ -7,12 +7,13 @@ on:
 
 jobs:
   build:
-    name: '${{ matrix.os }} node ${{ matrix.node }}'
+    name: 'node ${{ matrix.node }} ${{matrix.browser}}  ${{ matrix.os }} '
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12]
+        node: [12, 10]
+        browser: [chrome, firefox]
     steps:
       - uses: actions/setup-node@v1
         with:
@@ -23,7 +24,8 @@ jobs:
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
-          args: 'chrome tests/testcafe'
+          version: 1.6
+          args: '${{ matrix.browser}} tests/testcafe'
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
