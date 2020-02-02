@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12, 10]
+        node: [12]
     steps:
       - uses: actions/setup-node@v1
         with:
@@ -20,3 +20,12 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           args: 'chrome tests/testcafe'
+      - run: semantic-release
+  release:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'master' }}
+    needs: build
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - run: npx semantic-release
