@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: '${{ matrix.os }} node ${{ matrix.node }}'
+    name: 'node ${{ matrix.node }} ${{matrix.browser}}  ${{ matrix.os }} '
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
