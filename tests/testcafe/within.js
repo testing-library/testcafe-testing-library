@@ -4,7 +4,7 @@ import { within, getAllByTestId, getByTestId } from '../../src'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`within`
-  .page`http://localhost:13370`
+  .page`../../test-app/index.html`
 
 test('getByText within container', async t => {
   const { getByText } = await within('#nested')
