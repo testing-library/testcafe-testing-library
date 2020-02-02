@@ -26,6 +26,11 @@ jobs:
         with:
           version: 1.6
           args: '${{ matrix.browser}} tests/testcafe'
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: ls -asl dist
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
