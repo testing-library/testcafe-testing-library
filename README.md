@@ -14,7 +14,7 @@
 
 <hr />
 
-![testcafe-testing-library](https://github.com/testing-library/testcafe-testing-library/workflows/testcafe-testing-library/badge.svg)
+[![testcafe-testing-library](https://github.com/testing-library/testcafe-testing-library/workflows/testcafe-testing-library/badge.svg)](https://github.com/testing-library/testcafe-testing-library/actions?query=branch%3Amaster+workflow%3Atestcafe-testing-library)
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
