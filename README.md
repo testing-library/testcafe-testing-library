@@ -14,7 +14,7 @@
 
 <hr />
 
-[![Build Status][build-badge]][build]
+![testcafe-testing-library](https://github.com/testing-library/testcafe-testing-library/workflows/testcafe-testing-library/badge.svg)
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
@@ -100,8 +100,6 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/testing-library/testcafe-testing-library.svg?style=flat-square
-[build]: https://travis-ci.org/testing-library/testcafe-testing-library
 [coverage]: https://codecov.io/github/testing-library/testcafe-testing-library
 [version-badge]: https://img.shields.io/npm/v/@testing-library/testcafe.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@testing-library/testcafe
