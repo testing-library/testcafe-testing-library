@@ -24,7 +24,6 @@ jobs:
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
-          version: 1.6
           args: '${{ matrix.browser}} tests/testcafe'
   release:
     runs-on: ubuntu-latest
