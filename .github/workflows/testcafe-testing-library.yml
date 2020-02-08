@@ -13,7 +13,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node: [12, 10]
-        browser: [chrome, firefox]
+        browser: ["chrome:headless", "firefox:headless"]
     steps:
       - uses: actions/setup-node@v1
         with:
@@ -24,7 +24,6 @@ jobs:
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
         with:
-          version: 1.6
           args: '${{ matrix.browser}} tests/testcafe'
   release:
     runs-on: ubuntu-latest
