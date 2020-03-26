@@ -11,6 +11,7 @@ import {
   findByText
 
 } from '../../src/'
+import WebElement from './WebElement'
 
 // eslint-disable-next-line babel/no-unused-expressions
 fixture`selectors`
@@ -75,6 +76,7 @@ test('still works after reload', async (t) => {
 });
 
 test.skip('getByTestId only throws the error message', async t => {
+
   const testId = 'Some random id'
   const errorMessage = `Unable to find an element by: [data-testid="${testId}"]`
   try {
@@ -82,4 +84,12 @@ test.skip('getByTestId only throws the error message', async t => {
   } catch (e) {
     await t.expect(e).contains(errorMessage)
   }
+})
+
+
+// eslint-disable-next-line 
+test('works with external pom', async (t) => {
+
+  const button = new WebElement(getByText('button-text'))
+  button.click()
 })
