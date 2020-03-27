@@ -79,17 +79,21 @@ here!
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/benmonro"><img src="https://avatars3.githubusercontent.com/u/399236?v=4" width="100px;" alt="Ben Monro"/><br /><sub><b>Ben Monro</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=benmonro" title="Documentation">📖</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=benmonro" title="Code">💻</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=benmonro" title="Tests">⚠️</a> <a href="#infra-benmonro" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-benmonro" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td>
-    <td align="center"><a href="https://twitter.com/miherlosev"><img src="https://avatars2.githubusercontent.com/u/4133518?v=4" width="100px;" alt="Mikhail Losev"/><br /><sub><b>Mikhail Losev</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=miherlosev" title="Code">💻</a> <a href="#question-miherlosev" title="Answering Questions">💬</a></td>
-    <td align="center"><a href="http://mrtnvh.com"><img src="https://avatars1.githubusercontent.com/u/2543633?v=4" width="100px;" alt="Maarten Van Hoof"/><br /><sub><b>Maarten Van Hoof</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=vanhoofmaarten" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/dobogo"><img src="https://avatars2.githubusercontent.com/u/1498117?v=4" width="100px;" alt="Katsuya Hino"/><br /><sub><b>Katsuya Hino</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=dobogo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/benmonro"><img src="https://avatars3.githubusercontent.com/u/399236?v=4" width="100px;" alt=""/><br /><sub><b>Ben Monro</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=benmonro" title="Documentation">📖</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=benmonro" title="Code">💻</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=benmonro" title="Tests">⚠️</a> <a href="#infra-benmonro" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-benmonro" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars0.githubusercontent.com/u/1500684?v=4" width="100px;" alt=""/><br /><sub><b>Kent C. Dodds</b></sub></a><br /><a href="#infra-kentcdodds" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-kentcdodds" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=kentcdodds" title="Code">💻</a></td>
+    <td align="center"><a href="https://twitter.com/miherlosev"><img src="https://avatars2.githubusercontent.com/u/4133518?v=4" width="100px;" alt=""/><br /><sub><b>Mikhail Losev</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=miherlosev" title="Code">💻</a> <a href="#question-miherlosev" title="Answering Questions">💬</a></td>
+    <td align="center"><a href="http://mrtnvh.com"><img src="https://avatars1.githubusercontent.com/u/2543633?v=4" width="100px;" alt=""/><br /><sub><b>Maarten Van Hoof</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=vanhoofmaarten" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dobogo"><img src="https://avatars2.githubusercontent.com/u/1498117?v=4" width="100px;" alt=""/><br /><sub><b>Katsuya Hino</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=dobogo" title="Code">💻</a></td>
+    <td align="center"><a href="http://theinterned.net"><img src="https://avatars2.githubusercontent.com/u/2694?v=4" width="100px;" alt=""/><br /><sub><b>Ned Schwartz</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=theinterned" title="Documentation">📖</a></td>
   </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
