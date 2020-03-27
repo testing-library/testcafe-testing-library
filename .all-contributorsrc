@@ -40,7 +40,6 @@
       ]
     },
     {
-
       "login": "vanhoofmaarten",
       "name": "Maarten Van Hoof",
       "avatar_url": "https://avatars1.githubusercontent.com/u/2543633?v=4",
@@ -48,8 +47,8 @@
       "contributions": [
         "code"
       ]
-     },
-     {
+    },
+    {
       "login": "dobogo",
       "name": "Katsuya Hino",
       "avatar_url": "https://avatars2.githubusercontent.com/u/1498117?v=4",
@@ -57,11 +56,21 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "theinterned",
+      "name": "Ned Schwartz",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2694?v=4",
+      "profile": "http://theinterned.net",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "testcafe-testing-library",
   "projectOwner": "testing-library",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
