@@ -81,3 +81,6 @@ jspm_packages/
 .dynamodb/
 dist
 ignorethis.txt
+
+# OSX
+.DS_Store

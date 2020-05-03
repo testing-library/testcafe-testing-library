@@ -3,9 +3,9 @@
   "version": "1.0.1-semantically-released",
   "description": "",
   "main": "dist/index.js",
-  "typings": "typings",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "kcd-scripts build",
+    "build": "tsc -p tsconfig.build.json",
     "lint": "kcd-scripts lint",
     "test:unit": "kcd-scripts test --no-watch --config=jest.config.js",
     "test:unit:monorepo": "cd tests/unit && kcd-scripts test --no-watch --config=../../jest.config.js",
@@ -14,23 +14,23 @@
     "test": "npm-run-all --parallel test:unit test:unit:monorepo test:testcafe"
   },
   "files": [
-    "dist",
-    "typings"
+    "dist"
   ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/runtime": "^7.4.3",
-    "@testing-library/dom": "^7.0.2",
-    "testcafe": "^1.5.0"
+    "@testing-library/dom": "^7.2.2",
+    "testcafe": "^1.8.4"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
+    "eslint": "^6.8.0",
     "eslint-plugin-testcafe": "^0.2.1",
-    "kcd-scripts": "^5.0.0",
+    "kcd-scripts": "^5.11.1",
     "npm-run-all": "^4.1.5",
-    "semantic-release": "^17.0.2"
+    "semantic-release": "^17.0.7",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
   },
   "repository": {
     "type": "git",
