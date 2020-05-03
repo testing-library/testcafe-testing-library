@@ -89,6 +89,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://mrtnvh.com"><img src="https://avatars1.githubusercontent.com/u/2543633?v=4" width="100px;" alt=""/><br /><sub><b>Maarten Van Hoof</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=vanhoofmaarten" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/dobogo"><img src="https://avatars2.githubusercontent.com/u/1498117?v=4" width="100px;" alt=""/><br /><sub><b>Katsuya Hino</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=dobogo" title="Code">💻</a></td>
     <td align="center"><a href="http://theinterned.net"><img src="https://avatars2.githubusercontent.com/u/2694?v=4" width="100px;" alt=""/><br /><sub><b>Ned Schwartz</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=theinterned" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.matej.snuderl.si/"><img src="https://avatars3.githubusercontent.com/u/8524109?v=4" width="100px;" alt=""/><br /><sub><b>Matej Šnuderl</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=Meemaw" title="Code">💻</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=Meemaw" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
