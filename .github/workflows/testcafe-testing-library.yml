@@ -35,7 +35,6 @@ jobs:
           node-version: 12
       - uses: actions/checkout@v1
       - run: npm ci
-      - run: npm prune --production
       - run: npm run build
       - run: ls -asl dist
       - run: npx semantic-release
