@@ -9,7 +9,6 @@ import {
   findByText,
 } from '../../src/'
 
-// eslint-disable-next-line babel/no-unused-expressions
 fixture`selectors`.page`../../test-app/index.html`
 
 test('getByPlaceHolderText', async (t) => {
