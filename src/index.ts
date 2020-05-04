@@ -67,12 +67,11 @@ function isSelector(sel: any): sel is Selector {
 const bindFunction = <T extends keyof typeof queries>(queryName: T) => {
   const query = queryName.replace('find', 'query') as T
   return Selector(
-    (...args) => {
-      const [matcher, ...rest] = args
+    (matcher, ...options) => {
       return window.TestingLibraryDom[query](
         document.body,
         matcher,
-        ...rest,
+        ...options,
       ) as Node | Node[] | NodeList | HTMLCollection
     },
     {
