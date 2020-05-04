@@ -48,7 +48,6 @@ This allows you to use all the useful [dom-testing-library](https://github.com/k
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Installation](#installation)
-  - [With typescript](#with-typescript)
 - [Usage](#usage)
 - [Other Solutions](#other-solutions)
 - [Contributors](#contributors)
