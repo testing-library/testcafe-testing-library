@@ -1,11 +1,11 @@
-import {Config, BoundFunction} from '@testing-library/dom'
+import { Config, BoundFunction } from "@testing-library/dom";
 
-export type Options = Pick<Config, 'testIdAttribute'>
+export type Options = Pick<Config, "testIdAttribute">;
 
 export type TestcafeBoundFunction<T> = (
   ...params: Parameters<BoundFunction<T>>
-) => SelectorPromise
+) => SelectorPromise;
 
 export type TestcafeBoundFunctions<T> = {
-  [P in keyof T]: TestcafeBoundFunction<T[P]>
-}
+  [P in keyof T]: TestcafeBoundFunction<T[P]>;
+};
