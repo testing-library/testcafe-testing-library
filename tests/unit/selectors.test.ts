@@ -1,5 +1,5 @@
 import * as selectors from '../../src'
-import { queries } from '@testing-library/dom'
+import {queries} from '@testing-library/dom'
 
 it('exports expected selectors', () => {
   expect(selectors).toMatchObject(expect.any(Object))
@@ -8,14 +8,10 @@ it('exports expected selectors', () => {
     expect(selectors[selector as keyof typeof selectors]).toBeInstanceOf(
       Function,
     )
-  });
+  })
+})
 
-
-});
-
-it("exports all dom-testing-library queries", () => {
-    
-  let { configureOnce, configure, within, ...justSelectors } = selectors;
-  expect(Object.keys(justSelectors).sort()).toEqual(Object.keys(queries).sort());
-
+it('exports all dom-testing-library queries', () => {
+  let {configureOnce, configure, within, ...justSelectors} = selectors
+  expect(Object.keys(justSelectors).sort()).toEqual(Object.keys(queries).sort())
 })
