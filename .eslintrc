@@ -1,7 +1,13 @@
 {
-  "plugins": ["testcafe"],
-  "extends": [
-    "./node_modules/kcd-scripts/eslint.js",
-    "plugin:testcafe/recommended"
-  ]
+    "plugins": [
+        "testcafe"
+    ],
+    "extends": [
+        "./node_modules/kcd-scripts/eslint.js",
+        "plugin:testcafe/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "babel/quotes": "off"
+    }
 }
