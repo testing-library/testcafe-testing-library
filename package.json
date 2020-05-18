@@ -36,7 +36,7 @@
     "prettier": "^2.0.5",
     "semantic-release": "^17.0.7",
     "testcafe": "^1.8.4",
-    "ts-jest": "^25.4.0",
+    "ts-jest": "^26.0.0",
     "typescript": "^3.8.3"
   },
   "repository": {
