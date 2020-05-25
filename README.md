@@ -23,6 +23,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-blue.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=testing-library/testcafe-testing-library)](https://dependabot.com)
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
