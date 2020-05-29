@@ -3,7 +3,7 @@ import { queries } from "@testing-library/dom";
 import type {
   Options,
   TestcafeBoundFunction,
-  TestcafeBoundFunctions,
+  TestcafeBoundFunctions
 } from "./types";
 
 declare global {
@@ -132,5 +132,44 @@ export const queryByTestId = bindFunction("queryByTestId");
 export const queryAllByTestId = bindFunction("queryAllByTestId");
 export const findByTestId = bindFunction("findByTestId");
 export const findAllByTestId = bindFunction("findAllByTestId");
+
+export const screen: Screen = {
+getByText,
+getAllByText,
+queryByText,
+queryAllByText,
+findByText,
+findAllByText,
+getByAltText,
+getAllByAltText,
+queryByAltText,
+queryAllByAltText,
+findByAltText,
+findAllByAltText,
+getByTitle,
+getAllByTitle,
+queryByTitle,
+queryAllByTitle,
+findByTitle,
+findAllByTitle,
+getByDisplayValue,
+getAllByDisplayValue,
+queryByDisplayValue,
+queryAllByDisplayValue,
+findByDisplayValue,
+getByRole,
+getAllByRole,
+queryByRole,
+queryAllByRole,
+findByRole,
+findAllByRole,
+findAllByDisplayValue,
+getByTestId,
+getAllByTestId,
+queryByTestId,
+queryAllByTestId,
+findByTestId,
+findAllByTestId,
+}
 
 export * from "./types";
