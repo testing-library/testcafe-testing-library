@@ -1,19 +1,33 @@
-import * as selectors from "../../src";
+import * as allExports from "../../src";
 import { queries } from "@testing-library/dom";
 
-it("exports expected selectors", () => {
-  expect(selectors).toMatchObject(expect.any(Object));
-  expect(Object.keys(selectors)).toMatchSnapshot();
+it("exports expected exports", () => {
+  expect(allExports).toMatchObject(expect.any(Object));
+
+  expect(Object.keys(allExports)).toMatchSnapshot();
+  
+  const {screen, ...selectors} = allExports;
+
   Object.keys(selectors).forEach((selector) => {
     expect(selectors[selector as keyof typeof selectors]).toBeInstanceOf(
+      Function
+    );
+  });
+
+  Object.keys(screen).forEach((selector) => {
+    expect(screen[selector as keyof typeof screen]).toBeInstanceOf(
       Function
     );
   });
 });
 
 it("exports all dom-testing-library queries", () => {
-  let { configureOnce, configure, within, ...justSelectors } = selectors;
+  let { configureOnce, configure, within, screen, ...justSelectors } = allExports;
   expect(Object.keys(justSelectors).sort()).toEqual(
     Object.keys(queries).sort()
   );
+
+  expect(Object.keys(screen).sort()).toEqual(
+    Object.keys(queries).sort()
+  )
 });

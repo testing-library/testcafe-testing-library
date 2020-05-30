@@ -1,6 +1,6 @@
 import { screen } from '../../src';
 
-fixture`selectors`.page`../../test-app/index.html`;
+fixture`screen`.page`../../test-app/index.html`;
 
 test("getByPlaceHolderText", async (t) => {
   await t.typeText(
