@@ -1,4 +1,4 @@
-import { screen } from '../../src';
+import { screen } from "../../src";
 
 fixture`screen`.page`../../test-app/index.html`;
 
@@ -19,5 +19,3 @@ test("getByLabelText", async (t) => {
     "Hello Input Labelled By Id"
   );
 });
-
-

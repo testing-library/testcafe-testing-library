@@ -5,8 +5,8 @@ it("exports expected exports", () => {
   expect(allExports).toMatchObject(expect.any(Object));
 
   expect(Object.keys(allExports)).toMatchSnapshot();
-  
-  const {screen, ...selectors} = allExports;
+
+  const { screen, ...selectors } = allExports;
 
   Object.keys(selectors).forEach((selector) => {
     expect(selectors[selector as keyof typeof selectors]).toBeInstanceOf(
@@ -15,19 +15,21 @@ it("exports expected exports", () => {
   });
 
   Object.keys(screen).forEach((selector) => {
-    expect(screen[selector as keyof typeof screen]).toBeInstanceOf(
-      Function
-    );
+    expect(screen[selector as keyof typeof screen]).toBeInstanceOf(Function);
   });
 });
 
 it("exports all dom-testing-library queries", () => {
-  let { configureOnce, configure, within, screen, ...justSelectors } = allExports;
+  let {
+    configureOnce,
+    configure,
+    within,
+    screen,
+    ...justSelectors
+  } = allExports;
   expect(Object.keys(justSelectors).sort()).toEqual(
     Object.keys(queries).sort()
   );
 
-  expect(Object.keys(screen).sort()).toEqual(
-    Object.keys(queries).sort()
-  )
+  expect(Object.keys(screen).sort()).toEqual(Object.keys(queries).sort());
 });

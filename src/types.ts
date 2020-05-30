@@ -1,4 +1,4 @@
-import { Config, BoundFunction, queries} from "@testing-library/dom";
+import { Config, BoundFunction, queries } from "@testing-library/dom";
 
 export type Options = Pick<Config, "testIdAttribute">;
 
@@ -9,4 +9,3 @@ export type TestcafeBoundFunction<T> = (
 export type TestcafeBoundFunctions<T> = {
   [P in keyof T]: TestcafeBoundFunction<T[P]>;
 };
-

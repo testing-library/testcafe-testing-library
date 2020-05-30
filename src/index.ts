@@ -3,7 +3,7 @@ import { queries } from "@testing-library/dom";
 import type {
   Options,
   TestcafeBoundFunction,
-  TestcafeBoundFunctions
+  TestcafeBoundFunctions,
 } from "./types";
 
 declare global {
@@ -182,6 +182,6 @@ export const screen = {
   queryAllByTestId,
   findByTestId,
   findAllByTestId,
-}
+};
 
 export * from "./types";
