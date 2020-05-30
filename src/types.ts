@@ -1,4 +1,4 @@
-import { Config, BoundFunction } from "@testing-library/dom";
+import { Config, BoundFunction, queries } from "@testing-library/dom";
 
 export type Options = Pick<Config, "testIdAttribute">;
 

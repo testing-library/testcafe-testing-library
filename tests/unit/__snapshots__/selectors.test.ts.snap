@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`exports expected selectors 1`] = `
+exports[`exports expected exports 1`] = `
 Array [
   "configureOnce",
   "configure",
@@ -53,5 +53,6 @@ Array [
   "queryAllByTestId",
   "findByTestId",
   "findAllByTestId",
+  "screen",
 ]
 `;
