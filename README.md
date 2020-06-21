@@ -24,6 +24,7 @@
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=testing-library/testcafe-testing-library)](https://dependabot.com)
+[![Discord][discord-badge]][discord]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
@@ -128,3 +129,5 @@ MIT
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [dom-testing-library]: https://github.com/testing-library/dom-testing-library
 [testcafe]: https://devexpress.github.io/testcafe/
+[discord-badge]: https://img.shields.io/discord/723559267868737556.svg?color=7389D8&labelColor=6A7EC2&logo=discord&logoColor=ffffff&style=flat-square
+[discord]: https://discord.gg/c6JN9fM
