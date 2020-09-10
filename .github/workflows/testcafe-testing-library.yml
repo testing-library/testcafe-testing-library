@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - uses: actions/checkout@v1
-      - run: npm ci
+      - run: npm install
       - run: npm run validate
       - name: Run TestCafe Tests
         uses: DevExpress/testcafe-action@latest
@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: 12
       - uses: actions/checkout@v1
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - run: ls -asl dist
       - run: npx semantic-release
