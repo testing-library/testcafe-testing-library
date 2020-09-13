@@ -1,10 +1,6 @@
 import { ClientFunction, Selector } from "testcafe";
 import { queries } from "@testing-library/dom";
-import type {
-  Options,
-  TestcafeBoundFunction,
-  TestcafeBoundFunctions,
-} from "./types";
+import type { Options, QueryName, WithinSelectors } from "./types";
 
 declare global {
   interface Window {
@@ -14,7 +10,8 @@ declare global {
 
 const SELECTOR_TYPE = Selector("")().constructor.name;
 
-const withinSelectors = Object.keys(queries).reduce((acc, withinQueryName) => {
+const queryNames = Object.keys(queries) as QueryName[];
+const withinSelectors = queryNames.reduce((acc, withinQueryName) => {
   return {
     ...acc,
     [withinQueryName]: new Function(`
@@ -27,12 +24,11 @@ const withinSelectors = Object.keys(queries).reduce((acc, withinQueryName) => {
     return window.TestingLibraryDom.within(el).${withinQueryName}.apply(null, args);
   `),
   };
-}, {} as Record<keyof typeof queries, (node: Element, ...methodParams: any[]) => any>);
+}, {} as Record<QueryName, (node: Element, ...methodParams: any[]) => any>);
 
 export async function configureOnce(options: Partial<Options>) {
   const { content } = configure(options);
-  // @ts-ignore
-  await ClientFunction(new Function(content))();
+  await ClientFunction(new Function(content) as () => Function)();
 }
 
 export function configure(options: Partial<Options>) {
@@ -42,17 +38,23 @@ export function configure(options: Partial<Options>) {
   return { content: configFunction };
 }
 
-export function within<T>(
-  sel: string | Selector | SelectorPromise | TestcafeBoundFunction<T>
-): TestcafeBoundFunctions<typeof queries> {
-  if (sel instanceof Function) {
-    return within(sel());
+const withWithinMethods = (selector: Selector) => {
+  return (selector.addCustomMethods(withinSelectors, {
+    returnDOMNodes: true,
+  }) as unknown) as WithinSelectors;
+};
+
+export function within(
+  selector: string | Selector | SelectorPromise | (() => SelectorPromise)
+): WithinSelectors {
+  if (selector instanceof Function) {
+    return within(selector());
   }
-  if (isSelector(sel)) {
-    // @ts-ignore
-    return sel.addCustomMethods(withinSelectors, { returnDOMNodes: true });
-  } else if (typeof sel === "string") {
-    return within(Selector(sel));
+
+  if (isSelector(selector)) {
+    return withWithinMethods(selector);
+  } else if (typeof selector === "string") {
+    return within(Selector(selector));
   } else {
     throw new Error(
       `"within" only accepts a query (getBy, queryBy, etc), string or testcafe Selector`
@@ -64,7 +66,7 @@ function isSelector(sel: any): sel is Selector {
   return sel.constructor.name === SELECTOR_TYPE;
 }
 
-const bindFunction = <T extends keyof typeof queries>(queryName: T) => {
+const bindFunction = <T extends QueryName>(queryName: T) => {
   const query = queryName.replace("find", "query") as T;
   return Selector(
     (matcher, ...options) => {
