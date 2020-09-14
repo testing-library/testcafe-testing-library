@@ -107,6 +107,12 @@
       document
         .querySelector('[data-testid="image-with-random-alt-tag"]')
         .setAttribute("alt", "Image Random Alt Text " + Math.random());
+
+      setTimeout(() => {
+        document
+          .querySelector("body")
+          .appendChild(document.createTextNode("Late content!"));
+      }, 15000);
     </script>
   </body>
 </html>

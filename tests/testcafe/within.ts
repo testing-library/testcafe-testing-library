@@ -43,6 +43,7 @@ test("works with nested selectors", async (t) => {
 test('works with nested selector from "All" query with index - regex', async (t) => {
   const nestedDivs = getAllByTestId(/nested/);
   await t.expect(nestedDivs.count).eql(2);
+
   const nested = within(nestedDivs.nth(1));
 
   await t
@@ -61,8 +62,8 @@ test('works with nested selector from "All" query with index - exact:false', asy
 });
 
 test('works with nested selector from "All" query with index - function', async (t) => {
-  const nestedDivs = getAllByTestId((_content: any, element: any) =>
-    element.getAttribute("data-testid").startsWith("nested")
+  const nestedDivs = getAllByTestId((_content, element) =>
+    element.getAttribute("data-testid")!.startsWith("nested")
   );
   await t.expect(nestedDivs.count).eql(2);
   const nested = await within(nestedDivs.nth(0));

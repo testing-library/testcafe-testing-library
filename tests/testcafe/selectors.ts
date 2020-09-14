@@ -5,6 +5,7 @@ import {
   getByAltText,
   getByTestId,
   getAllByText,
+  queryByText,
   queryAllByText,
   findByText,
 } from "../../src/";
@@ -20,6 +21,10 @@ test("getByPlaceHolderText", async (t) => {
 
 test("getByText", async (t) => {
   await t.click(getByText("getByText"));
+});
+
+test("queryByText with timeout as property", async (t) => {
+  await t.click(queryByText("Late content!").with({ timeout: 20000 }));
 });
 
 test("getByLabelText", async (t) => {
@@ -54,7 +59,6 @@ test("queryAllByText", async (t) => {
 
 test("findByText async", async (t) => {
   await t.click(getByText("delayed"));
-
   await t.expect(findByText("updated button async")).ok();
 });
 
