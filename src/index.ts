@@ -1,5 +1,5 @@
 import { ClientFunction, Selector } from "testcafe";
-import { Matcher, MatcherOptions, queries } from "@testing-library/dom";
+import { Matcher, queries } from "@testing-library/dom";
 import type {
   Options,
   QueryName,
