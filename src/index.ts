@@ -1,6 +1,11 @@
 import { ClientFunction, Selector } from "testcafe";
-import { queries } from "@testing-library/dom";
-import type { Options, QueryName, WithinSelectors } from "./types";
+import { Matcher, MatcherOptions, queries } from "@testing-library/dom";
+import type {
+  Options,
+  QueryName,
+  QueryOptions,
+  WithinSelectors,
+} from "./types";
 
 declare global {
   interface Window {
@@ -68,18 +73,19 @@ function isSelector(sel: any): sel is Selector {
 
 const bindFunction = <T extends QueryName>(queryName: T) => {
   const query = queryName.replace("find", "query") as T;
-  return Selector(
-    (matcher, ...options) => {
-      return window.TestingLibraryDom[query](
-        document.body,
-        matcher,
-        ...options
-      ) as Node | Node[] | NodeList | HTMLCollection;
-    },
-    {
-      dependencies: { query },
-    }
-  );
+  return (matcher: Matcher, options: QueryOptions = {}) => {
+    return Selector(
+      () =>
+        window.TestingLibraryDom[query](document.body, matcher, options) as
+          | Node
+          | Node[]
+          | NodeList
+          | HTMLCollection,
+      {
+        dependencies: { query, matcher, options },
+      }
+    );
+  };
 };
 
 export const getByLabelText = bindFunction("getByLabelText");
