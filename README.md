@@ -92,6 +92,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://theinterned.net"><img src="https://avatars2.githubusercontent.com/u/2694?v=4" width="100px;" alt=""/><br /><sub><b>Ned Schwartz</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=theinterned" title="Documentation">📖</a></td>
     <td align="center"><a href="https://www.matej.snuderl.si/"><img src="https://avatars3.githubusercontent.com/u/8524109?v=4" width="100px;" alt=""/><br /><sub><b>Matej Šnuderl</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=Meemaw" title="Code">💻</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=Meemaw" title="Tests">⚠️</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/timmak"><img src="https://avatars2.githubusercontent.com/u/24553?v=4" width="100px;" alt=""/><br /><sub><b>Tim Pinington</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=timmak" title="Code">💻</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=timmak" title="Tests">⚠️</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->

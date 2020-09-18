@@ -75,6 +75,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "timmak",
+      "name": "Tim Pinington",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/24553?v=4",
+      "profile": "https://github.com/timmak",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
