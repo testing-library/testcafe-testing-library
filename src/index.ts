@@ -1,11 +1,6 @@
 import { ClientFunction, Selector } from "testcafe";
 import { Matcher, queries } from "@testing-library/dom";
-import type {
-  Options,
-  QueryName,
-  QueryOptions,
-  WithinSelectors,
-} from "./types";
+import type { Options, QueryName, WithinSelectors } from "./types";
 
 declare global {
   interface Window {
@@ -71,9 +66,14 @@ function isSelector(sel: any): sel is Selector {
   return sel.constructor.name === SELECTOR_TYPE;
 }
 
-const bindFunction = <T extends QueryName>(queryName: T) => {
+const bindFunction = <
+  T extends QueryName,
+  Options = Parameters<typeof queries[T]>[2]
+>(
+  queryName: T
+) => {
   const query = queryName.replace("find", "query") as T;
-  return (matcher: Matcher, options?: QueryOptions) => {
+  return (matcher: Matcher, options?: Options) => {
     return Selector(
       () =>
         window.TestingLibraryDom[query](document.body, matcher, options) as
