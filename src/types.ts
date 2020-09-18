@@ -1,10 +1,4 @@
-import {
-  Config,
-  BoundFunction,
-  queries,
-  Matcher,
-  MatcherOptions,
-} from "@testing-library/dom";
+import { Config, BoundFunction, queries } from "@testing-library/dom";
 
 export type Options = Pick<Config, "testIdAttribute">;
 
@@ -17,7 +11,4 @@ export type TestcafeBoundFunctions<T> = {
 };
 
 export type QueryName = keyof typeof queries;
-
-export type QueryOptions = MatcherOptions;
-
 export type WithinSelectors = TestcafeBoundFunctions<typeof queries>;

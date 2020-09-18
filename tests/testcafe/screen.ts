@@ -19,3 +19,9 @@ test("getByLabelText", async (t) => {
     "Hello Input Labelled By Id"
   );
 });
+
+test("getByRole", async (t) => {
+  await t.click(
+    screen.getByRole("textbox", { name: "Label For Input Labelled By Id" })
+  );
+});
