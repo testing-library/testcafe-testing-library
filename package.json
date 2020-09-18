@@ -11,7 +11,7 @@
     "test:unit:monorepo": "cd tests/unit && kcd-scripts test --no-watch --config=../../jest.config.js",
     "test:testcafe": "testcafe --skip-js-errors",
     "format": "prettier . --write",
-    "format:check":"prettier . --check",
+    "format:check": "prettier . --check",
     "validate": "kcd-scripts validate format:check,lint,test:unit:monorepo",
     "test": "npm-run-all --parallel test:unit test:unit:monorepo test:testcafe"
   },
