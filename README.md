@@ -94,12 +94,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/timmak"><img src="https://avatars2.githubusercontent.com/u/24553?v=4" width="100px;" alt=""/><br /><sub><b>Tim Pinington</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/commits?author=timmak" title="Code">💻</a> <a href="https://github.com/testing-library/testcafe-testing-library/commits?author=timmak" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://nilshartmann.net"><img src="https://avatars0.githubusercontent.com/u/435073?v=4" width="100px;" alt=""/><br /><sub><b>Nils Hartmann</b></sub></a><br /><a href="https://github.com/testing-library/testcafe-testing-library/issues?q=author%3Anilshartmann" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
