@@ -85,6 +85,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "nilshartmann",
+      "name": "Nils Hartmann",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/435073?v=4",
+      "profile": "https://nilshartmann.net",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
