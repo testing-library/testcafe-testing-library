@@ -36,7 +36,9 @@ test("still works after browser page reload", async (t) => {
 
 test("works with nested selectors", async (t) => {
   await t
-    .expect(within(screen.getByTestId("nested")).getByText("Button Text").exists)
+    .expect(
+      within(screen.getByTestId("nested")).getByText("Button Text").exists
+    )
     .ok();
 });
 
@@ -101,13 +103,11 @@ test("should throw error if count > 1", async (t) => {
   await t.expect(didThrow).ok();
 });
 
-test("works with findBy queries", async t => {
+test("works with findBy queries", async (t) => {
   const group = screen.findByRole("group", { name: "My Group" });
 
   await t
-     .click(
-       within(group).findByRole("button", { name: "Increase B" })
-     )
-     .expect(within(group).findByText("1").exists)
-     .ok();
-})
+    .click(within(group).findByRole("button", { name: "Increase B" }))
+    .expect(within(group).findByText("1").exists)
+    .ok();
+});
