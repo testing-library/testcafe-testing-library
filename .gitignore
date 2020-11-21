@@ -84,3 +84,4 @@ ignorethis.txt
 
 # OSX
 .DS_Store
+yarn.lock
