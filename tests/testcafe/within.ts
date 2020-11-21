@@ -1,5 +1,5 @@
 import { Selector } from "testcafe";
-import { within, getAllByTestId, getByTestId } from "../../src";
+import { within, screen } from "../../src";
 
 fixture`within`.page`../../test-app/index.html`;
 
@@ -30,18 +30,20 @@ test("still works after browser page reload", async (t) => {
   const nested = await within("#nested");
   await t.expect(nested.getByText("Button Text").exists).ok();
 
-  await t.eval(() => location.reload(true));
+  await t.eval(() => location.reload());
   await t.expect(nested.getByText("Button Text").exists).ok();
 });
 
 test("works with nested selectors", async (t) => {
   await t
-    .expect(within(getByTestId("nested")).getByText("Button Text").exists)
+    .expect(
+      within(screen.getByTestId("nested")).getByText("Button Text").exists
+    )
     .ok();
 });
 
 test('works with nested selector from "All" query with index - regex', async (t) => {
-  const nestedDivs = getAllByTestId(/nested/);
+  const nestedDivs = screen.getAllByTestId(/nested/);
   await t.expect(nestedDivs.count).eql(2);
 
   const nested = within(nestedDivs.nth(1));
@@ -54,7 +56,7 @@ test('works with nested selector from "All" query with index - regex', async (t)
 });
 
 test('works with nested selector from "All" query with index - exact:false', async (t) => {
-  const nestedDivs = getAllByTestId("nested", { exact: false });
+  const nestedDivs = screen.getAllByTestId("nested", { exact: false });
   await t.expect(nestedDivs.count).eql(2);
   const nested = await within(nestedDivs.nth(0));
 
@@ -62,7 +64,7 @@ test('works with nested selector from "All" query with index - exact:false', asy
 });
 
 test('works with nested selector from "All" query with index - function', async (t) => {
-  const nestedDivs = getAllByTestId((_content, element) =>
+  const nestedDivs = screen.getAllByTestId((_content, element) =>
     element.getAttribute("data-testid")!.startsWith("nested")
   );
   await t.expect(nestedDivs.count).eql(2);
@@ -89,14 +91,23 @@ test("should throw if invalid param", async (t) => {
 });
 
 test("should throw error if count > 1", async (t) => {
-  const nestedDivs = getAllByTestId(/nested/);
+  const nestedDivs = screen.getAllByTestId(/nested/);
 
   await t.expect(nestedDivs.count).eql(2);
   let didThrow = false;
   try {
-    await t.expect(within(nestedDivs).getByText("blah"));
+    await t.expect(within(nestedDivs).getByText("blah").exists);
   } catch (e) {
     didThrow = true;
   }
   await t.expect(didThrow).ok();
+});
+
+test("works with findBy queries", async (t) => {
+  const group = screen.findByRole("group", { name: "My Group" });
+
+  await t
+    .click(within(group).findByRole("button", { name: "Increase B" }))
+    .expect(within(group).findByText("1").exists)
+    .ok();
 });

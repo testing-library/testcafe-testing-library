@@ -21,7 +21,10 @@ const withinSelectors = queryNames.reduce((acc, withinQueryName) => {
     }
     const el = els[0];
     const args = Array.from(arguments).slice(1);
-    return window.TestingLibraryDom.within(el).${withinQueryName}.apply(null, args);
+    return window.TestingLibraryDom.within(el).${withinQueryName.replace(
+      "find",
+      "query"
+    )}.apply(null, args);
   `),
   };
 }, {} as Record<QueryName, (node: Element, ...methodParams: any[]) => any>);

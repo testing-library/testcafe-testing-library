@@ -59,7 +59,7 @@ test("queryAllByText", async (t) => {
 
 test("findByText async", async (t) => {
   await t.click(getByText("delayed"));
-  await t.expect(findByText("updated button async")).ok();
+  await t.expect(findByText("updated button async").exists).ok();
 });
 
 test("still works after browser page load", async (t) => {
