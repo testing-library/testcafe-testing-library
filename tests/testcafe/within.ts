@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable @typescript-eslint/await-thenable */
 import { Selector } from "testcafe";
 import { within, screen } from "../../src";
 
@@ -65,6 +67,7 @@ test('works with nested selector from "All" query with index - exact:false', asy
 
 test('works with nested selector from "All" query with index - function', async (t) => {
   const nestedDivs = screen.getAllByTestId((_content, element) =>
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     element.getAttribute("data-testid")!.startsWith("nested")
   );
   await t.expect(nestedDivs.count).eql(2);
@@ -82,8 +85,10 @@ test("works on a standard testcafe nested selector", async (t) => {
 test("should throw if invalid param", async (t) => {
   let didThrow = false;
   try {
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     await t.expect(within({ foo: "bar" }).getByText("baz").exists).ok();
+    // eslint-disable-next-line @typescript-eslint/no-implicit-any-catch
   } catch (e) {
     didThrow = true;
   }
@@ -97,6 +102,7 @@ test("should throw error if count > 1", async (t) => {
   let didThrow = false;
   try {
     await t.expect(within(nestedDivs).getByText("blah").exists);
+    // eslint-disable-next-line @typescript-eslint/no-implicit-any-catch
   } catch (e) {
     didThrow = true;
   }
