@@ -1,5 +1,5 @@
-import * as allExports from "../../src";
 import { queries } from "@testing-library/dom";
+import * as allExports from "../../src";
 
 it("exports expected exports", () => {
   expect(allExports).toMatchObject(expect.any(Object));
@@ -20,7 +20,7 @@ it("exports expected exports", () => {
 });
 
 it("exports all dom-testing-library queries", () => {
-  let {
+  const {
     configureOnce,
     configure,
     within,

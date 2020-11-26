@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-implied-eval */
+/* eslint-disable no-new-func */
 import { ClientFunction, Selector } from "testcafe";
 import { Matcher, queries } from "@testing-library/dom";
 import type { Options, QueryName, WithinSelectors } from "./types";
@@ -27,6 +29,7 @@ const withinSelectors = queryNames.reduce((acc, withinQueryName) => {
     )}.apply(null, args);
   `),
   };
+  // eslint-disable-next-line
 }, {} as Record<QueryName, (node: Element, ...methodParams: any[]) => any>);
 
 export async function configureOnce(options: Partial<Options>) {
@@ -46,10 +49,13 @@ const withWithinMethods = (selector: Selector) => {
     returnDOMNodes: true,
   }) as unknown) as WithinSelectors;
 };
+type SelectorArg =
+  | string
+  | Selector
+  | SelectorPromise
+  | (() => SelectorPromise);
 
-export function within(
-  selector: string | Selector | SelectorPromise | (() => SelectorPromise)
-): WithinSelectors {
+export function within(selector: SelectorArg): WithinSelectors {
   if (selector instanceof Function) {
     return within(selector());
   }
@@ -65,7 +71,7 @@ export function within(
   }
 }
 
-function isSelector(sel: any): sel is Selector {
+function isSelector(sel: SelectorArg): sel is Selector {
   return sel.constructor.name === SELECTOR_TYPE;
 }
 

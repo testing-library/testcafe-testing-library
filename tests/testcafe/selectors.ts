@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/prefer-screen-queries */
 import {
   getByText,
   getByPlaceholderText,
@@ -72,14 +73,4 @@ test("still works after browser page load", async (t) => {
 test("still works after reload", async (t) => {
   await t.eval(() => location.reload(true));
   await t.expect(getByText("getByText").exists).ok();
-});
-
-test.skip("getByTestId only throws the error message", async (t) => {
-  const testId = "Some random id";
-  const errorMessage = `Unable to find an element by: [data-testid="${testId}"]`;
-  try {
-    await t.click(getByText(testId));
-  } catch (e) {
-    await t.expect(e).contains(errorMessage);
-  }
 });
