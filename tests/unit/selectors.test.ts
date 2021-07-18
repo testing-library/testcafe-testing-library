@@ -20,13 +20,8 @@ it("exports expected exports", () => {
 });
 
 it("exports all dom-testing-library queries", () => {
-  const {
-    configureOnce,
-    configure,
-    within,
-    screen,
-    ...justSelectors
-  } = allExports;
+  const { configureOnce, configure, within, screen, ...justSelectors } =
+    allExports;
   expect(Object.keys(justSelectors).sort()).toEqual(
     Object.keys(queries).sort()
   );
