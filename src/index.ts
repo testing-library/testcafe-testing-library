@@ -45,9 +45,9 @@ export function configure(options: Partial<Options>) {
 }
 
 const withWithinMethods = (selector: Selector) => {
-  return (selector.addCustomMethods(withinSelectors, {
+  return selector.addCustomMethods(withinSelectors, {
     returnDOMNodes: true,
-  }) as unknown) as WithinSelectors;
+  }) as unknown as WithinSelectors;
 };
 type SelectorArg =
   | string
