@@ -7,7 +7,7 @@
   ],
   "rules": {
     "testing-library/no-dom-import": "off",
-    "babel/new-cap": "off",
-    "babel/quotes": "off"
+    "@babel/new-cap": "off",
+    "@babel/quotes": "off"
   }
 }

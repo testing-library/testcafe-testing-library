@@ -13,13 +13,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14, 12, 10]
+        node: [10, 12, 14, 16]
         browser: ["chrome:headless", "firefox:headless"]
     steps:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - run: npm install
       - run: npm run validate
       - name: Run TestCafe Tests
@@ -32,8 +32,8 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: 12
-      - uses: actions/checkout@v1
+          node-version: 16
+      - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
       - run: ls -asl dist
