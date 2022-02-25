@@ -16,7 +16,7 @@ jobs:
         node: [10, 12, 14, 16]
         browser: ["chrome:headless", "firefox:headless"]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
       - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - uses: actions/checkout@v2
