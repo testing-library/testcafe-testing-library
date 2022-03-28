@@ -28,7 +28,7 @@
     "testcafe": ">= 1.5.0"
   },
   "devDependencies": {
-    "eslint": "^7.6.0",
+    "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-testcafe": "^0.2.1",
     "kcd-scripts": "^11.2.0",
