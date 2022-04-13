@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-implied-eval */
 /* eslint-disable no-new-func */
+/* eslint-disable new-cap */
 import { ClientFunction, Selector } from "testcafe";
 import { Matcher, queries } from "@testing-library/dom";
 import type { Options, QueryName, WithinSelectors } from "./types";

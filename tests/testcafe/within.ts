@@ -1,5 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable @typescript-eslint/await-thenable */
+/* eslint-disable new-cap */
 import { Selector } from "testcafe";
 import { within, screen } from "../../src";
 
@@ -68,7 +69,7 @@ test('works with nested selector from "All" query with index - exact:false', asy
 test('works with nested selector from "All" query with index - function', async (t) => {
   const nestedDivs = screen.getAllByTestId((_content, element) =>
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    element.getAttribute("data-testid")!.startsWith("nested")
+    element!.getAttribute("data-testid")!.startsWith("nested")
   );
   await t.expect(nestedDivs.count).eql(2);
   const nested = await within(nestedDivs.nth(0));
