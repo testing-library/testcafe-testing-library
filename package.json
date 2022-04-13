@@ -44,7 +44,7 @@
     "url": "https://github.com/testing-library/testcafe-testing-library.git"
   },
   "engines": {
-    "node": ">=10",
+    "node": ">=12",
     "npm": ">=6"
   }
 }
