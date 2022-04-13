@@ -1,5 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable @typescript-eslint/await-thenable */
+/* eslint-disable new-cap */
 import { Selector } from "testcafe";
 import { within, screen } from "../../src";
 
