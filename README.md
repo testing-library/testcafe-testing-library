@@ -2,7 +2,7 @@
 <h1>testcafe-testing-library</h1>
 
 <a href="https://www.emojione.com/emoji/1f402">
-<img height="80" width="80" alt="ox" src="https://raw.githubusercontent.com/testing-library/testcafe-testing-library/master/other/ox.png" />
+<img height="80" width="80" alt="ox" src="https://raw.githubusercontent.com/testing-library/testcafe-testing-library/main/other/ox.png" />
 
 </a>
 
@@ -14,7 +14,7 @@
 
 <hr />
 
-[![testcafe-testing-library](https://github.com/testing-library/testcafe-testing-library/workflows/testcafe-testing-library/badge.svg)](https://github.com/testing-library/testcafe-testing-library/actions?query=branch%3Amaster+workflow%3Atestcafe-testing-library)
+[![testcafe-testing-library](https://github.com/testing-library/testcafe-testing-library/workflows/testcafe-testing-library/badge.svg)](https://github.com/testing-library/testcafe-testing-library/actions?query=branch%3Amain+workflow%3Atestcafe-testing-library)
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
@@ -32,7 +32,7 @@
 
 <div align="center">
 <a href="https://testingjavascript.com">
-<img width="500" alt="TestingJavaScript.com Learn the smart, efficient way to test any JavaScript application." src="https://raw.githubusercontent.com/kentcdodds/cypress-testing-library/master/other/testingjavascript.jpg" />
+<img width="500" alt="TestingJavaScript.com Learn the smart, efficient way to test any JavaScript application." src="https://raw.githubusercontent.com/kentcdodds/cypress-testing-library/main/other/testingjavascript.jpg" />
 </a>
 </div>
 
@@ -117,12 +117,12 @@ MIT
 [downloads-badge]: https://img.shields.io/npm/dm/@testing-library/testcafe.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/@testing-library/testcafe
 [license-badge]: https://img.shields.io/npm/l/@testing-library/testcafe.svg?style=flat-square
-[license]: https://github.com/testing-library/testcafe-testing-library/blob/master/LICENSE
+[license]: https://github.com/testing-library/testcafe-testing-library/blob/main/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/testing-library/testcafe-testing-library/blob/master/other/CODE_OF_CONDUCT.md
+[coc]: https://github.com/testing-library/testcafe-testing-library/blob/main/other/CODE_OF_CONDUCT.md
 [github-watch-badge]: https://img.shields.io/github/watchers/testing-library/testcafe-testing-library.svg?style=social
 [github-watch]: https://github.com/testing-library/testcafe-testing-library/watchers
 [github-star-badge]: https://img.shields.io/github/stars/testing-library/testcafe-testing-library.svg?style=social
