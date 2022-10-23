@@ -37,7 +37,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: ls -asl dist
-      - run: npx semantic-release
+      - run: npx semantic-release --debug
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
