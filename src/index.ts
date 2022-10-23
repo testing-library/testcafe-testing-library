@@ -76,14 +76,9 @@ function isSelector(sel: SelectorArg): sel is Selector {
   return sel.constructor.name === SELECTOR_TYPE;
 }
 
-const bindFunction = <
-  T extends QueryName,
-  MatcherOptions = Parameters<typeof queries[T]>[2]
->(
-  queryName: T
-) => {
+const bindFunction = <T extends QueryName>(queryName: T) => {
   const query = queryName.replace("find", "query") as T;
-  return (matcher: Matcher, options?: MatcherOptions) => {
+  return (matcher: Matcher, options?: Parameters<typeof queries[T]>[2]) => {
     return Selector(
       () =>
         window.TestingLibraryDom[query](document.body, matcher, options) as

@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12, 14, 16]
+        node: [14, 16, 18]
         browser: ["chrome:headless", "firefox:headless"]
     steps:
       - uses: actions/setup-node@v3
