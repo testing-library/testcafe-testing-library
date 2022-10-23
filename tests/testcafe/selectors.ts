@@ -71,6 +71,6 @@ test("still works after browser page load", async (t) => {
 });
 
 test("still works after reload", async (t) => {
-  await t.eval(() => location.reload(true));
+  await t.eval(() => location.reload());
   await t.expect(getByText("getByText").exists).ok();
 });
