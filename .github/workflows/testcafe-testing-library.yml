@@ -2,7 +2,7 @@ name: testcafe-testing-library
 on:
   push:
     branches:
-      - "master"
+      - "main"
       - "alpha"
   pull_request:
 
