@@ -22,7 +22,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@testing-library/dom": "^8.19.0"
+    "@testing-library/dom": "^9.3.3"
   },
   "peerDependencies": {
     "testcafe": ">=2.0.0"
