@@ -3,7 +3,7 @@
 /* eslint-disable new-cap */
 import { ClientFunction, Selector } from "testcafe";
 import { Matcher, queries } from "@testing-library/dom";
-import type { Options, QueryName, WithinSelectors } from "./types";
+import { type Options, type QueryName, type WithinSelectors } from "./types";
 
 declare global {
   interface Window {
